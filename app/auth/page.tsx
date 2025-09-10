@@ -14,7 +14,8 @@ const Auth = () => {
     const [loading, setLoading] = useState(false);
     const router = useRouter();
     const schema = yup.object().shape({
-        email: yup.string().email('ایمیل نامعتبر')
+        email: yup.string().email('ایمیل نامعتبر'),
+        password: yup.string().min(6,'حداقل ۶ کاراکتر'),
     });
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         mode: 'onBlur',
@@ -34,9 +35,9 @@ const Auth = () => {
         }
     }
 
-    async function signIn() {
+    async function signIn(data) {
         setLoading(true);
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
+        const { error } = await supabase.auth.signInWithPassword({ email : data.email, password : data.password});
         setLoading(false);
         if (error) alert(error.message);
         else router.push("/");
@@ -56,21 +57,25 @@ const Auth = () => {
 
 
     return (
-        <main>
-            <div className='  shadow-lg mt-64 bg-gradient-to-br from-red-800 to-purple-800 p-[2px] w-96 rounded-xl mx-auto'>
-                <Card className='rounded-xl bg-slate-800 border-none text-white'>
+        <main className='pt-64'>
+            <div className='  shadow-lg bg-gradient-to-br from-cyan-700 to-sky-950 p-[1px] w-96 rounded-xl mx-auto'>
+                <Card className='rounded-xl bg-gray-900 border-none text-white'>
                     <CardHeader>
                         <CardTitle className='text-center'>ورود</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <form className='flex flex-col gap-3'>
+                        <form className='flex flex-col gap-3' onSubmit={handleSubmit(signIn)}>
                             <Label className='' htmlFor='email'>ایمیل</Label>
-                            <Input {...register('email')} id='email' type='text' className='border-slate-400' />
-                            {errors.email && <div className='text-red-600'>{errors.email.message}</div>}
+                            <div>
+                                <Input {...register('email')} id='email' type='text' className='border-none bg-slate-800' />
+                                {errors.email && <div className='text-red-600 text-sm mt-1'>{errors.email.message}</div>}
+                            </div>
 
-                            <Label className='' htmlFor='email'>رمز ورود</Label>
-                            <Input {...register('email')} id='email' type='text' className='border-slate-400' />
-                            {errors.email && <div className='text-red-600'>{errors.email.message}</div>}
+                            <Label className='' htmlFor='password'>رمز ورود</Label>
+                            <div>
+                                <Input {...register('password')} id='password' type='text' className='border-none bg-slate-800' />
+                                {errors.password && <div className='text-red-600 text-sm mt-1'>{errors.password.message}</div>}
+                            </div>
                             <Button className='mt-3 w-fit mx-auto px-8' variant="secondary">ورود</Button>
                         </form>
                     </CardContent>

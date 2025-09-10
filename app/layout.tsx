@@ -1,5 +1,42 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import "./input.css";
+
+const iranYekan = localFont({
+  src : [
+    {
+      path : '../public/fonts/iranYekan/Qs_Iranyekan_thin.ttf',
+      weight : '200',
+      style : 'normal'
+    },
+    {
+      path : '../public/fonts/iranYekan/Qs_Iranyekan_light.ttf',
+      weight : '300',
+      style : 'normal'
+    },
+    {
+      path : '../public/fonts/iranYekan/Qs_Iranyekan_medium.ttf',
+      weight : '400',
+      style : 'normal'
+    },
+    {
+      path : '../public/fonts/iranYekan/Qs_Iranyekan.ttf',
+      weight : '500',
+      style : 'normal'
+    },
+    {
+      path : '../public/fonts/iranYekan/Qs_Iranyekan_bold.ttf',
+      weight : '600',
+      style : 'normal'
+    },
+    {
+      path : '../public/fonts/iranYekan/Qs_Iranyekan_extrabold.ttf',
+      weight : '700',
+      style : 'normal'
+    },
+  ],
+  variable : '--font-iranyekan'
+});
 
 export const metadata: Metadata = {
   title: "Akhavan shop",
@@ -12,8 +49,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="rtl">
-      <body className="bg-gradient-to-br from-slate-950 to-slate-800 text-white min-h-screen">
+    <html lang="en" dir="rtl" className={iranYekan.className}>
+      <body className="bg-gradient-to-br from-slate-950 to-slate-700 text-white min-h-screen">
         {children}
       </body>
     </html>
