@@ -4,8 +4,6 @@ import { supabase } from '../../utils/supabaseClient'
 import { useRouter } from 'next/navigation';
 
 const Auth = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const router = useRouter();
 
@@ -29,47 +27,26 @@ const Auth = () => {
     }
 
 
-    useEffect(() => {
-        supabase.auth.getUser()
-            .then(({ data }) => {
-                if (!data.user) {
-                    alert('no user')
-                } else {
-                    router.push('/')
-                }
-            })
-    }, [])
+    // useEffect(() => {
+    //     supabase.auth.getUser()
+    //         .then(({ data }) => {
+    //             if (!data.user) {
+    //                 alert('no user')
+    //             } else {
+    //                 router.push('/')
+    //             }
+    //         })
+    // }, [])
 
 
     return (
-        <main className="flex flex-col items-center justify-center min-h-screen gap-4 p-6">
-            <h1 className="text-2xl font-bold">ورود / ثبت‌نام</h1>
-
-            <input
-                type="email"
-                placeholder="ایمیل"
-                className="border px-3 py-2 rounded w-64"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-                type="password"
-                placeholder="رمز عبور"
-                className="border px-3 py-2 rounded w-64"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-
-            <div className="flex gap-3">
-                <button onClick={signIn} className="bg-blue-500 text-white px-4 py-2 rounded" disabled={loading}>
-                    ورود
-                </button>
-                <button onClick={signUp} className="bg-green-500 text-white px-4 py-2 rounded" disabled={loading}>
-                    ثبت‌نام
-                </button>
+        <main>
+            <div className='bg-gradient-to-r from-red-600 to-purple-800 p-2'>
+                <form>
+                    
+                </form>
             </div>
         </main>
-
     )
 }
 
