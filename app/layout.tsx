@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./input.css";
+import Header from "@/components/header/Header";
 
 const iranYekan = localFont({
   src : [
@@ -51,6 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en" dir="rtl" className={iranYekan.className}>
       <body className="bg-gradient-to-br from-slate-950 to-slate-700 text-white min-h-screen">
+        <Header />
         {children}
       </body>
     </html>
