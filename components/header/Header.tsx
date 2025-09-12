@@ -2,15 +2,16 @@
 import { supabase } from '@/utils/supabaseClient'
 import { ArrowLeftStartOnRectangleIcon } from '@heroicons/react/24/solid'
 import React from 'react'
+import toast from 'react-hot-toast';
 
 const Header = () => {
     async function signOut() {
         const { error } = await supabase.auth.signOut();
 
         if (error) {
-            console.log('خطا در خرورج', error.message)
+            toast.error(error.message)
         } else {
-            alert('خروج با موفقیت انجام شد')
+            toast.success('خروج با موفقیت انجام شد')
         }
     }
     return (

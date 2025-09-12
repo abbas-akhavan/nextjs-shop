@@ -10,6 +10,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import ShowPassBtn from '@/components/auth/ShowPassBtn';
+import toast from 'react-hot-toast';
 
 const Auth = () => {
     const [loading, setLoading] = useState(false);
@@ -20,8 +21,8 @@ const Auth = () => {
         password: string
     }
     const schema = yup.object().shape({
-        email: yup.string().email('ایمیل نامعتبر'),
-        password: yup.string().min(6, 'حداقل ۶ کاراکتر'),
+        email: yup.string().required('لطفا این قسمت را خالی نگذارید').email('ایمیل نامعتبر'),
+        password: yup.string().required('لطفا این قسمت را خالی نگذارید').min(6, 'حداقل ۶ کاراکتر'),
     });
     const { register, handleSubmit, formState: { errors }, reset } = useForm<LoginFormData>({
         mode: 'onBlur',
@@ -45,21 +46,24 @@ const Auth = () => {
         setLoading(true);
         const { error } = await supabase.auth.signInWithPassword({ email: data.email, password: data.password });
         setLoading(false);
-        if (error) alert(error.message);
-        else router.push("/");
+        if (error) {
+            toast.error(error.message)
+        }
+        else {
+            toast.success('ورود با موفقیت انجام شد')
+            router.push("/")
+        }
     }
 
 
-    // useEffect(() => {
-    //     supabase.auth.getUser()
-    //         .then(({ data }) => {
-    //             if (!data.user) {
-    //                 alert('no user')
-    //             } else {
-    //                 router.push('/')
-    //             }
-    //         })
-    // }, [])
+    useEffect(() => {
+        supabase.auth.getUser()
+            .then(({ data }) => {
+                if (data.user) {
+                    router.push('/')
+                }
+            })
+    }, [])
 
 
     return (
@@ -73,14 +77,14 @@ const Auth = () => {
                         <form className='flex flex-col gap-3' onSubmit={handleSubmit(signIn)}>
                             <Label htmlFor='email'>ایمیل</Label>
                             <div>
-                                <Input {...register('email')} id='email' type='text' className='border-none bg-slate-800 ltr' />
+                                <Input autoComplete='off' {...register('email')} id='email' type='text' className='border-none bg-slate-800 ltr' />
                                 {errors.email && <div className='text-red-600 text-sm mt-1'>{errors.email.message}</div>}
                             </div>
 
                             <Label htmlFor='password'>رمز ورود</Label>
                             <div>
                                 <div className='relative'>
-                                    <Input {...register('password')} id='password' type={showPass ? 'text' : 'password'} className='border-none bg-slate-800 ltr' />
+                                    <Input autoComplete='off' {...register('password')} id='password' type={showPass ? 'text' : 'password'} className='border-none bg-slate-800 ltr' />
                                     <ShowPassBtn showPass={showPass} setShowPass={setShowPass} />
                                 </div>
                                 {errors.password && <div className='text-red-600 text-sm mt-1'>{errors.password.message}</div>}
