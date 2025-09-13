@@ -31,16 +31,16 @@ const Auth = () => {
 
 
 
-    async function signUp() {
-        setLoading(true);
-        const { error } = await supabase.auth.signUp({ email, password });
-        setLoading(false);
-        if (error) alert(error.message);
-        else {
-            alert("ثبت‌نام موفق! ایمیل خودت رو چک کن.");
-            router.push("/");
-        }
-    }
+    // async function signUp() {
+    //     setLoading(true);
+    //     const { error } = await supabase.auth.signUp({ email, password });
+    //     setLoading(false);
+    //     if (error) alert(error.message);
+    //     else {
+    //         alert("ثبت‌نام موفق! ایمیل خودت رو چک کن.");
+    //         router.push("/");
+    //     }
+    // }
 
     async function signIn(data: LoginFormData) {
         setLoading(true);
