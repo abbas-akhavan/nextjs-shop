@@ -12,11 +12,14 @@ import { Button } from '@/components/ui/button';
 import ShowPassBtn from '@/components/auth/ShowPassBtn';
 import toast from 'react-hot-toast';
 import Spiner from '@/components/Spiner';
+import { useAppDispatch } from '@/lib/store/hooks';
+import { login } from '@/lib/store/features/auth/authSlice';
 
 const Auth = () => {
     const [loading, setLoading] = useState(false);
     const router = useRouter();
     const [showPass, setShowPass] = useState(false);
+    const dispacth = useAppDispatch();
     type LoginFormData = {
         email: string,
         password: string
@@ -30,19 +33,6 @@ const Auth = () => {
         resolver: yupResolver(schema)
     })
 
-
-
-    // async function signUp() {
-    //     setLoading(true);
-    //     const { error } = await supabase.auth.signUp({ email, password });
-    //     setLoading(false);
-    //     if (error) alert(error.message);
-    //     else {
-    //         alert("ثبت‌نام موفق! ایمیل خودت رو چک کن.");
-    //         router.push("/");
-    //     }
-    // }
-
     async function signIn(data: LoginFormData) {
         setLoading(true);
         const { error } = await supabase.auth.signInWithPassword({ email: data.email, password: data.password });
@@ -52,6 +42,7 @@ const Auth = () => {
         }
         else {
             toast.success('ورود با موفقیت انجام شد')
+            dispacth(login());
             router.push("/")
         }
     }
