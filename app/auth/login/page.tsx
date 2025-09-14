@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react'
-import { supabase } from '../../utils/supabaseClient'
+import { supabase } from '../../../utils/supabaseClient'
 import { useRouter } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -11,6 +11,7 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import ShowPassBtn from '@/components/auth/ShowPassBtn';
 import toast from 'react-hot-toast';
+import Spiner from '@/components/Spiner';
 
 const Auth = () => {
     const [loading, setLoading] = useState(false);
@@ -67,8 +68,8 @@ const Auth = () => {
 
 
     return (
-        <main className='pt-64'>
-            <div className='  shadow-lg bg-gradient-to-br from-cyan-700 to-sky-950 p-[1px] w-96 rounded-xl mx-auto'>
+        <main className='container mx-auto p-5 min-h-screen flex items-center justify-center'>
+            <div className='  shadow-lg bg-gradient-to-br from-cyan-700 to-sky-950 p-[1px] w-full md:w-96 rounded-xl mx-auto'>
                 <Card className='rounded-xl bg-gray-900 border-none text-white'>
                     <CardHeader>
                         <CardTitle className='text-center'>ورود</CardTitle>
@@ -89,7 +90,13 @@ const Auth = () => {
                                 </div>
                                 {errors.password && <div className='text-red-600 text-sm mt-1'>{errors.password.message}</div>}
                             </div>
-                            <Button className='mt-3 w-fit mx-auto px-8' variant="secondary">ورود</Button>
+                            <Button disabled={loading} className='mt-3 w-fit mx-auto px-8' variant="secondary">
+                                {
+                                    loading
+                                        ? <Spiner />
+                                        : 'ورود'
+                                }
+                            </Button>
                         </form>
                     </CardContent>
                 </Card>
