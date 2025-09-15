@@ -7,7 +7,7 @@ const Header = () => {
     const dispatch = useAppDispatch();
 
     return (
-        <header className='bg-slate-950 p-3 shadow-lg border-b border-slate-800'>
+        <header className='bg-gray-700 p-3 shadow-lg border-b border-gray-600'>
             <div className='container mx-auto'>
                 <section className='flex justify-between'>
                     <div></div>
