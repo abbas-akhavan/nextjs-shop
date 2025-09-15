@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { supabase } from '../../../utils/supabaseClient'
 import { useRouter } from 'next/navigation';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { useForm } from 'react-hook-form';
 import * as yup from "yup"
@@ -15,6 +15,7 @@ import Spiner from '@/components/Spiner';
 import { useAppDispatch } from '@/lib/store/hooks';
 import { login } from '@/lib/store/features/auth/authSlice';
 import { LoginFormData } from '@/types/LoginFormData';
+import Link from 'next/link';
 
 const Auth = () => {
     const [loading, setLoading] = useState(false);
@@ -56,7 +57,7 @@ const Auth = () => {
 
 
     return (
-        <main className='container mx-auto p-5 min-h-screen flex items-center justify-center'>
+        <main className='container mx-auto p-5 pt-40 md:pt-40'>
             <div className='  shadow-lg bg-gradient-to-br from-cyan-700 to-sky-950 p-[1px] w-full md:w-96 rounded-xl mx-auto'>
                 <Card className='rounded-xl bg-gray-900 border-none text-white'>
                     <CardHeader>
@@ -87,6 +88,9 @@ const Auth = () => {
                             </Button>
                         </form>
                     </CardContent>
+                    <CardFooter>
+                        حساب ندارید ؟ <Link className='mr-2 text-blue-400' href='/auth/register'>ثبت نام</Link>
+                    </CardFooter>
                 </Card>
             </div>
         </main>

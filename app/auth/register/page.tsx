@@ -58,7 +58,7 @@ const Auth = () => {
 
 
     return (
-        <main className='container mx-auto p-5 min-h-screen flex items-center justify-center'>
+        <main className='container mx-auto p-5 pt-40 md:pt-52'>
             <div className='  shadow-lg bg-gradient-to-br from-cyan-700 to-sky-950 p-[1px] w-full md:w-96 rounded-xl mx-auto'>
                 <Card className='rounded-xl bg-gray-900 border-none text-white'>
                     <CardHeader>
