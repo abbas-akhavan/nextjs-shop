@@ -58,7 +58,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Toaster toastOptions={{
-            className: "!bg-slate-700 !text-white"
+            className: "!bg-gray-100 !text-black"
           }} />
         </ReduxProvider>
 
