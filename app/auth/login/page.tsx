@@ -14,16 +14,13 @@ import toast from 'react-hot-toast';
 import Spiner from '@/components/Spiner';
 import { useAppDispatch } from '@/lib/store/hooks';
 import { login } from '@/lib/store/features/auth/authSlice';
+import { LoginFormData } from '@/types/LoginFormData';
 
 const Auth = () => {
     const [loading, setLoading] = useState(false);
     const router = useRouter();
     const [showPass, setShowPass] = useState(false);
     const dispacth = useAppDispatch();
-    type LoginFormData = {
-        email: string,
-        password: string
-    }
     const schema = yup.object().shape({
         email: yup.string().required('لطفا این قسمت را خالی نگذارید').email('ایمیل نامعتبر'),
         password: yup.string().required('لطفا این قسمت را خالی نگذارید').min(6, 'حداقل ۶ کاراکتر'),
