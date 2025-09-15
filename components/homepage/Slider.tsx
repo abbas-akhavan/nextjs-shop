@@ -1,12 +1,16 @@
+import { SliderItem } from '@/types/SliderItem';
 import React from 'react'
-async function getData() {
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    return { message: 'slider' }
-}
 const Slider = async () => {
-    const data = await getData();
+    const res = await fetch('https://zpuenityjokfjhmutjjv.supabase.co/rest/v1/sliders', {
+        headers: {
+            apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpwdWVuaXR5am9rZmpobXV0amp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTczMjgxNDgsImV4cCI6MjA3MjkwNDE0OH0.e1JlTc9hN3ZORLryHcV1g2K2w26Mqa9Nv5iybHk0KZM',
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpwdWVuaXR5am9rZmpobXV0amp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTczMjgxNDgsImV4cCI6MjA3MjkwNDE0OH0.e1JlTc9hN3ZORLryHcV1g2K2w26Mqa9Nv5iybHk0KZM'
+        }
+    });
+    const data: SliderItem[] = await res.json();
+    console.log(data)
     return (
-        <div className='text-center'>Slider</div>
+        <div className='text-center'>SLider</div>
     )
 }
 

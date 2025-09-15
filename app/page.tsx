@@ -15,9 +15,9 @@ export default async function Home() {
   const data = await getData();
   return (
     <>
-      <Suspense fallback={<p>Loading slider</p>}>
-        <Slider />
-      </Suspense>
+      {/* <Suspense fallback={<p>Loading slider</p>}>
+      </Suspense> */}
+      <Slider />
     </>
   );
 }
