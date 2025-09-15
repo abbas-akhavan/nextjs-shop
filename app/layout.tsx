@@ -4,6 +4,8 @@ import "./input.css";
 import Header from "@/components/header/Header";
 import toast, { Toaster } from "react-hot-toast";
 import { ReduxProvider } from "@/providers/ReduxProvider";
+import { Suspense } from "react";
+import { ClockLoader } from "react-spinners";
 
 const iranYekan = localFont({
   src: [
