@@ -52,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" dir="rtl" className={iranYekan.className}>
-      <body className="bg-gradient-to-br from-slate-950 to-slate-700 text-white min-h-screen">
+      <body className="bg-gradient-to-br from-gray-800 to-slate-900 text-white min-h-screen">
 
         <ReduxProvider>
           <Header />
