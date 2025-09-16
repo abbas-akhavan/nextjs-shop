@@ -9,7 +9,7 @@ const Slider = async () => {
         cache: 'no-store'
     });
     const data: SliderItem[] = await res.json();
-    console.log(data)
+
     return (
         <div className='text-center'>SLider</div>
     )

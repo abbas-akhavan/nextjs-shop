@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: 'this is home page.',
 }
 async function getData() {
-  await new Promise(resolve => setTimeout(resolve, 2000))
+  await new Promise(resolve => setTimeout(resolve, 1000))
   return { message: 'data' }
 }
 
@@ -15,9 +15,9 @@ export default async function Home() {
   const data = await getData();
   return (
     <>
-      {/* <Suspense fallback={<p>Loading slider</p>}>
-      </Suspense> */}
-      <Slider />
+      <Suspense fallback={<div className="bg-gray-300 w-full h-40 animate-pulse aspect-video opacity-50"></div>}>
+        <Slider />
+      </Suspense>
     </>
   );
 }
