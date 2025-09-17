@@ -15,7 +15,7 @@ export default async function Home() {
   // const data = await getData();
   return (
     <>
-      <Suspense fallback={<div className="bg-slate-700 w-[99%] mx-auto mt-2 sm:h-[300px] xl:h-[400px] animate-pulse opacity-75 rounded-md"></div>}>
+      <Suspense fallback={<div className="bg-slate-700 w-[96%] lg:w-full mx-auto mt-2 min-h-[180px] h-[40vw] lg:h-[300px] xl:h-[400px] animate-pulse opacity-75 rounded-md"></div>}>
         <SliderContainer />
       </Suspense>
     </>
