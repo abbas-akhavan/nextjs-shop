@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { SliderItem } from '@/types/SliderItem';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { useMediaQuery } from 'react-responsive'
 import Image from 'next/image';
 import { Button } from '../ui/button';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
@@ -45,7 +44,7 @@ const Slider = ({ items }: { items: SliderItem[] }) => {
             >
                 {
                     items.map(item => (
-                        <SwiperSlide>
+                        <SwiperSlide key={item.id}>
                             <Link href={item.link} className='block mx-auto w-[96%] lg:w-full relative min-h-[180px] h-[40vw] lg:h-[300px] xl:h-[400px]'>
                                 {
                                     isMobile
