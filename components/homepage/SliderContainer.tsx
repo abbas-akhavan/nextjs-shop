@@ -4,8 +4,8 @@ import Slider from './Slider';
 const SliderContainer = async () => {
     const res = await fetch('https://zpuenityjokfjhmutjjv.supabase.co/rest/v1/sliders', {
         headers: {
-            apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpwdWVuaXR5am9rZmpobXV0amp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTczMjgxNDgsImV4cCI6MjA3MjkwNDE0OH0.e1JlTc9hN3ZORLryHcV1g2K2w26Mqa9Nv5iybHk0KZM',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpwdWVuaXR5am9rZmpobXV0amp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTczMjgxNDgsImV4cCI6MjA3MjkwNDE0OH0.e1JlTc9hN3ZORLryHcV1g2K2w26Mqa9Nv5iybHk0KZM'
+            apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string,
+            Authorization: `Bearer ${process.env.SUPABASE_ANON_KEY}`
         },
         cache: 'no-store'
     });
