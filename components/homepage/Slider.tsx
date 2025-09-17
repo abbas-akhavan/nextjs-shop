@@ -1,17 +1,84 @@
+'use client'
+import React, { useEffect, useState } from 'react';
 import { SliderItem } from '@/types/SliderItem';
-import React from 'react'
-const Slider = async () => {
-    const res = await fetch('https://zpuenityjokfjhmutjjv.supabase.co/rest/v1/sliders', {
-        headers: {
-            apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpwdWVuaXR5am9rZmpobXV0amp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTczMjgxNDgsImV4cCI6MjA3MjkwNDE0OH0.e1JlTc9hN3ZORLryHcV1g2K2w26Mqa9Nv5iybHk0KZM',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpwdWVuaXR5am9rZmpobXV0amp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTczMjgxNDgsImV4cCI6MjA3MjkwNDE0OH0.e1JlTc9hN3ZORLryHcV1g2K2w26Mqa9Nv5iybHk0KZM'
-        },
-        cache: 'no-store'
-    });
-    const data: SliderItem[] = await res.json();
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { useMediaQuery } from 'react-responsive'
+import Image from 'next/image';
+import { Button } from '../ui/button';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
+import SliderCustomNextPrev from './SliderCustomNextPrev';
+import Link from 'next/link';
+
+import 'swiper/css';
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+const Slider = ({ items }: { items: SliderItem[] }) => {
+    const [isMounted, setIsMounted] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+        const checkSize = () => setIsMobile(window.innerWidth <= 1024);
+        checkSize();
+        window.addEventListener('resize', checkSize);
+        return () => window.removeEventListener('resize', checkSize);
+    }, []);
+
+    if (!isMounted) {
+        return null;
+    }
 
     return (
-        <div className='text-center'>SLider</div>
+        <>
+            <Swiper
+                slidesPerView={1}
+                modules={[Navigation, Autoplay, Pagination]}
+                pagination={{ clickable: true }}
+                navigation={{
+                    nextEl: '.home-slider-custom-next',
+                    prevEl: '.home-slider-custom-prev'
+                }}
+                autoplay={{ delay: 5000 }}
+                loop
+            >
+                {
+                    items.map(item => (
+                        <SwiperSlide>
+                            <Link href={item.link} className='block mx-auto w-[96%] lg:w-full relative min-h-[180px] h-[40vw] lg:h-[300px] xl:h-[400px]'>
+                                {
+                                    isMobile
+                                        ? <Image
+                                            src={item.mobile_image_url}
+                                            alt={item.title}
+                                            priority
+                                            fill
+                                            className='object-cover block lg:hidden rounded-md'
+                                        />
+                                        : <Image
+                                            src={item.image_url}
+                                            alt={item.title}
+                                            priority
+                                            fill
+                                            className='object-cover hidden lg:block'
+                                        />
+                                }
+
+                            </Link>
+                        </SwiperSlide>
+                    ))
+                }
+            </Swiper>
+            <div className='absolute bottom-6 right-6 z-10 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200'>
+                <SliderCustomNextPrev behaviour='prev'>
+                    <ChevronRightIcon className='size-4' />
+                </SliderCustomNextPrev>
+                <SliderCustomNextPrev behaviour='next'>
+                    <ChevronLeftIcon className='size-4' />
+                </SliderCustomNextPrev>
+            </div>
+        </>
     )
 }
 
