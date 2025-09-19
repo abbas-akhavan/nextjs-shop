@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./input.css";
-import Header from "@/components/header/Header";
 import { Toaster } from "react-hot-toast";
 import { ReduxProvider } from "@/providers/ReduxProvider";
 
@@ -53,9 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en" dir="rtl" className={iranYekan.className}>
       <body className="bg-gradient-to-br from-gray-800 to-slate-900 text-white min-h-screen">
-
         <ReduxProvider>
-          <Header />
           {children}
           <Toaster toastOptions={{
             className: "!bg-gray-100 !text-black"
