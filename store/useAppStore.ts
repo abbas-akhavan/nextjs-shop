@@ -7,8 +7,6 @@ interface CartItem {
 }
 
 interface User {
-    id: string;
-    name: string;
     email: string;
     isLoggedIn: boolean;
 }
@@ -44,3 +42,5 @@ const useAppStore = create<AppState>((set) => ({
     login: (user) => set({ user: { ...user, isLoggedIn: true } }),
     logout: () => set({ user: null, cart: [] })
 }));
+
+export default useAppStore;

@@ -12,16 +12,15 @@ import { Button } from '@/components/ui/button';
 import ShowPassBtn from '@/components/auth/ShowPassBtn';
 import toast from 'react-hot-toast';
 import Spiner from '@/components/Spiner';
-import { useAppDispatch } from '@/lib/store/hooks';
-import { login } from '@/lib/store/features/auth/authSlice';
 import { LoginFormData } from '@/types/LoginFormData';
 import Link from 'next/link';
+import useAppStore from '@/store/useAppStore';
 
 const Auth = () => {
+    const login = useAppStore((state) => state.login);
     const [loading, setLoading] = useState(false);
     const router = useRouter();
     const [showPass, setShowPass] = useState(false);
-    const dispacth = useAppDispatch();
     const schema = yup.object().shape({
         email: yup.string().required('لطفا این قسمت را خالی نگذارید').email('ایمیل نامعتبر'),
         password: yup.string().required('لطفا این قسمت را خالی نگذارید').min(6, 'حداقل ۶ کاراکتر'),
@@ -39,9 +38,9 @@ const Auth = () => {
             toast.error(error.message)
         }
         else {
-            toast.success('ورود با موفقیت انجام شد')
-            dispacth(login());
-            router.push("/")
+            toast.success('ورود با موفقیت انجام شد');
+            login({ email: data.email });
+            router.push("/");
         }
     }
 

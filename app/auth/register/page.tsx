@@ -12,14 +12,13 @@ import { Button } from '@/components/ui/button';
 import ShowPassBtn from '@/components/auth/ShowPassBtn';
 import toast from 'react-hot-toast';
 import Spiner from '@/components/Spiner';
-import { useAppDispatch } from '@/lib/store/hooks';
-import { login } from '@/lib/store/features/auth/authSlice';
+import useAppStore from '@/store/useAppStore';
 
 const Auth = () => {
     const [loading, setLoading] = useState(false);
     const router = useRouter();
     const [showPass, setShowPass] = useState(false);
-    const dispacth = useAppDispatch();
+    const login = useAppStore((state) => state.login);
     type LoginFormData = {
         email: string,
         password: string
@@ -41,7 +40,7 @@ const Auth = () => {
             toast.error(error.message)
         }
         else {
-            dispacth(login());
+            login({ email: data.email });
             toast.success('ثبت‌ نام موفق! ایمیل خودت رو چک کن')
             router.push("/")
         }
