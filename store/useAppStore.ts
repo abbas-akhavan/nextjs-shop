@@ -1,27 +1,5 @@
+import { AppState } from '@/types/AppStateTypes';
 import { create } from 'zustand';
-interface CartItem {
-    id: string;
-    name: string;
-    price: number;
-    quantity: number;
-}
-
-interface User {
-    email: string;
-    isLoggedIn: boolean;
-}
-
-interface AppState {
-    //cart
-    cart: CartItem[];
-    addToCart: (item: CartItem) => void;
-    removeFromCart: (id: string) => void;
-    clearCart: () => void;
-    //user
-    user: User | null;
-    login: (user: Omit<User, "isLoggedIn">) => void;
-    logout: () => void;
-}
 
 const useAppStore = create<AppState>((set) => ({
     cart: [],
