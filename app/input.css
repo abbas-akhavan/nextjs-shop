@@ -67,6 +67,12 @@
   }
 }
 
+@layer components{
+  .skeleton-bg{
+    @apply bg-slate-700 animate-pulse opacity-75;
+  }
+}
+
 .ltr{
   direction: ltr !important;
 }
