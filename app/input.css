@@ -69,7 +69,7 @@
 
 @layer components{
   .skeleton-bg{
-    @apply bg-slate-700 animate-pulse opacity-75;
+    @apply bg-slate-700 opacity-85 animate-pulse duration-1000;
   }
 }
 

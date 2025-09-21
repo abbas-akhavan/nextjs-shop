@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     globalNotFound: true,
   },
   images: {
-    domains: ["zpuenityjokfjhmutjjv.supabase.co"],
+    domains: ["zpuenityjokfjhmutjjv.supabase.co", "dkstatics-public.digikala.com"],
   },
 
 };

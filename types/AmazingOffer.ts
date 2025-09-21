@@ -8,5 +8,5 @@ export interface AmazingOffer {
     start_date: string;
     end_date: string;
     is_active: boolean;
-    products: Product;
+    product: Product;
 }
