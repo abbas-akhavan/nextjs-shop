@@ -48,7 +48,7 @@ const amazingOffers = [
         },
     },
     {
-        id: "offer-1",
+        id: "offer-4",
         discount_percent: 20,
         old_price: 12000000,
         new_price: 9600000,
@@ -63,7 +63,7 @@ const amazingOffers = [
         },
     },
     {
-        id: "offer-2",
+        id: "offer-5",
         discount_percent: 35,
         old_price: 8000000,
         new_price: 5200000,
@@ -78,7 +78,7 @@ const amazingOffers = [
         },
     },
     {
-        id: "offer-3",
+        id: "offer-6",
         discount_percent: 15,
         old_price: 15000000,
         new_price: 12750000,
@@ -93,7 +93,7 @@ const amazingOffers = [
         },
     },
     {
-        id: "offer-1",
+        id: "offer-7",
         discount_percent: 20,
         old_price: 12000000,
         new_price: 9600000,
@@ -108,7 +108,7 @@ const amazingOffers = [
         },
     },
     {
-        id: "offer-2",
+        id: "offer-8",
         discount_percent: 35,
         old_price: 8000000,
         new_price: 5200000,
@@ -123,7 +123,7 @@ const amazingOffers = [
         },
     },
     {
-        id: "offer-3",
+        id: "offer-9",
         discount_percent: 15,
         old_price: 15000000,
         new_price: 12750000,
@@ -138,7 +138,7 @@ const amazingOffers = [
         },
     },
     {
-        id: "offer-1",
+        id: "offer-10",
         discount_percent: 20,
         old_price: 12000000,
         new_price: 9600000,
@@ -153,7 +153,7 @@ const amazingOffers = [
         },
     },
     {
-        id: "offer-2",
+        id: "offer-11",
         discount_percent: 35,
         old_price: 8000000,
         new_price: 5200000,
@@ -168,7 +168,7 @@ const amazingOffers = [
         },
     },
     {
-        id: "offer-3",
+        id: "offer-12",
         discount_percent: 15,
         old_price: 15000000,
         new_price: 12750000,
