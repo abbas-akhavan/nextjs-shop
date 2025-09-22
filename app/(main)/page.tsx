@@ -20,7 +20,7 @@ export default async function Home() {
       <Suspense fallback={<MainSliderSkeleton />}>
         <SliderContainer />
       </Suspense>
-      <Suspense fallback={<div className="skeleton-bg h-44"></div>}>
+      <Suspense fallback={<div className="h-[268px] container mx-auto mt-5 px-2"><div className="skeleton-bg w-full h-full rounded-xl"></div></div>}>
         <AmazingOffersContainer />
       </Suspense>
     </>

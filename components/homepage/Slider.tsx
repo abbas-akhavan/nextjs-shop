@@ -70,10 +70,10 @@ const Slider = ({ items }: { items: SliderItem[] }) => {
                 }
             </Swiper>
             <div className='hidden absolute bottom-6 right-6 z-10 sm:flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200'>
-                <SliderCustomNextPrev behaviour='prev'>
+                <SliderCustomNextPrev className='home-slider-custom-prev'>
                     <ChevronRightIcon className='size-4' />
                 </SliderCustomNextPrev>
-                <SliderCustomNextPrev behaviour='next'>
+                <SliderCustomNextPrev className='home-slider-custom-next'>
                     <ChevronLeftIcon className='size-4' />
                 </SliderCustomNextPrev>
             </div>

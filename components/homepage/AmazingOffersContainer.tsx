@@ -191,7 +191,7 @@ const AmazingOffersContainer = async () => {
     const data: AmazingOffer[] = await getData();
     return (
         <div className='container mx-auto mt-5 px-2'>
-            <div className='bg-red-600 py-4 rounded-xl'>
+            <div className='bg-red-600 py-4 rounded-xl relative'>
                 <AmazingSlider items={data} />
             </div>
         </div>
