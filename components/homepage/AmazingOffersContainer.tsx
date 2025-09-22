@@ -1,6 +1,10 @@
 import { AmazingOffer } from '@/types/AmazingOffer';
 import React from 'react'
 import AmazingSlider from './AmazingSlider';
+import Image from 'next/image';
+import Timer from '../shared/Timer';
+import Link from 'next/link';
+import { ChevronLeftIcon } from '@heroicons/react/24/solid';
 const amazingOffers = [
     {
         id: "offer-1",
@@ -192,6 +196,12 @@ const AmazingOffersContainer = async () => {
     return (
         <div className='container mx-auto mt-5 px-2'>
             <div className='bg-red-600 py-4 rounded-xl relative'>
+                <div className='flex md:hidden gap-2 pb-3 px-4'>
+                    <Image src='/Amazing.svg' alt='پیشنهاد شگفت انگیز' width={27} height={27} />
+                    <Image src='/MobileAmazing.svg' alt='پیشنهاد شگفت انگیز' width={108} height={20} />
+                    <Timer endTime='2025-09-22T23:59:59' />
+                    <Link href='/incredible-offers' className='flex mr-auto text-xs items-center'>همه <ChevronLeftIcon className='size-3' /></Link>
+                </div>
                 <AmazingSlider items={data} />
             </div>
         </div>

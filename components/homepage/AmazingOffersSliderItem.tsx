@@ -12,7 +12,7 @@ const AmazingOffersSliderItem = ({ item, isFirst }: { item: AmazingOffer, isFirs
         <Link href={`/products/${product.id}`}
             className={`bg-white flex flex-col p-2 text-xs gap-2 ${isFirst ? 'rounded-tr-md rounded-br-md' : ''}`}
         >
-            <Image width={132} height={132} src={product.image_url} alt={product.name} className='mx-auto' />
+            <Image width={132} height={132} src={product.image_url} alt={product.name} className='mx-auto min-h-[132px] object-cover' />
             <h3 className='text-gray-500  line-clamp-2 leading-5 h-[40px]'>{product.name + product.name}</h3>
             <div className='text-gray-700 flex justify-between items-center'>
                 <DiscountPercent value={disCountPercent} />

@@ -46,7 +46,7 @@ const AmazingSlider = ({ items }: { items: AmazingOffer[] }) => {
                 }}
                 spaceBetween={5}
             >
-                <SwiperSlide>
+                <SwiperSlide className='!hidden md:!block'>
                     <Link href='/incredible-offers' className='flex flex-col items-center'>
                         <Image src='/Amazings.svg' alt='پیشنهاد شگفت انگیز' width={88} height={88} />
                         <Timer endTime='2025-09-22T23:59:59' />
@@ -56,7 +56,7 @@ const AmazingSlider = ({ items }: { items: AmazingOffer[] }) => {
                 </SwiperSlide>
                 {
                     items.map((item, index) => (
-                        <SwiperSlide key={item.id}>
+                        <SwiperSlide key={item.id} className={`${index === 0 ? 'pr-3 md:pr-0' : ''}`}>
                             <AmazingOffersSliderItem item={item} isFirst={index === 0} />
                         </SwiperSlide>
                     ))
