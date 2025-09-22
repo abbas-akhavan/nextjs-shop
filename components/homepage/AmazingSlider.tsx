@@ -56,7 +56,7 @@ const AmazingSlider = ({ items }: { items: AmazingOffer[] }) => {
                 </SwiperSlide>
                 {
                     items.map((item, index) => (
-                        <SwiperSlide >
+                        <SwiperSlide key={item.id}>
                             <AmazingOffersSliderItem item={item} isFirst={index === 0} />
                         </SwiperSlide>
                     ))
