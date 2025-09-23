@@ -12,7 +12,7 @@ const SliderContainer = async () => {
     const data = await res.json();
     // const data = await new Promise(resolve => setTimeout(() => resolve(res.json()), 180000));
     return (
-        <div className='relative group mt-2'>
+        <div className='relative group mt-5'>
             <Slider items={data} />
         </div>
     )
