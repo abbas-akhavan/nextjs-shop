@@ -1,7 +1,9 @@
 import AmazingOffersContainer from "@/components/homepage/AmazingOffersContainer";
+import ServicesContainer from "@/components/homepage/ServicesContainer";
 import SliderContainer from "@/components/homepage/SliderContainer";
 import AmazingOffersSkeleton from "@/components/skeletons/AmazingOffersSkeleton";
 import MainSliderSkeleton from "@/components/skeletons/MainSliderSkeleton";
+import ServicesSkeleton from "@/components/skeletons/ServicesSkeleton";
 import { Metadata } from "next";
 import { Suspense } from "react";
 
@@ -21,9 +23,14 @@ export default async function Home() {
       <Suspense fallback={<MainSliderSkeleton />}>
         <SliderContainer />
       </Suspense>
-      <Suspense fallback={<AmazingOffersSkeleton />}>
-        <AmazingOffersContainer />
-      </Suspense>
+      <div className="container mx-auto px-2">
+        <Suspense fallback={<ServicesSkeleton />}>
+          <ServicesContainer />
+        </Suspense>
+        <Suspense fallback={<AmazingOffersSkeleton />}>
+          <AmazingOffersContainer />
+        </Suspense>
+      </div>
     </>
   );
 }

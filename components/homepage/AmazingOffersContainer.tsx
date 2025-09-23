@@ -194,7 +194,7 @@ async function getData() {
 const AmazingOffersContainer = async () => {
     const data: AmazingOffer[] = await getData();
     return (
-        <div className='container mx-auto mt-5 px-2'>
+        <div className='mt-5'>
             <div className='bg-red-600 py-4 rounded-xl relative'>
                 <div className='flex md:hidden gap-2 pb-3 px-4'>
                     <Image src='/Amazing.svg' alt='پیشنهاد شگفت انگیز' width={27} height={27} />
