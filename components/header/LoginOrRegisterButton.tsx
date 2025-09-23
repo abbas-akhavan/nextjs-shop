@@ -36,21 +36,21 @@ const LoginOrRegisterButton = () => {
     }, []);
 
     return (
-        <div>
+        <>
             {
                 user?.isLoggedIn
                     ? <Button variant="destructive" onClick={() => signOut()}>
-                        <ArrowLeftStartOnRectangleIcon className='!size-5' />
+                        <ArrowLeftStartOnRectangleIcon className='!size-6' />
                         خروج
                     </Button>
                     : <Button variant='secondary' asChild>
                         <Link href="/auth/login" >
-                            <ArrowLeftEndOnRectangleIcon className='!size-5' />
+                            <ArrowLeftEndOnRectangleIcon className='!size-6' />
                             ورود | ثبت نام
                         </Link>
                     </Button>
             }
-        </div>
+        </>
     )
 }
 

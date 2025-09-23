@@ -2,6 +2,7 @@
 import { useAppDispatch, useAppSelector } from '@/lib/store/hooks';
 import React from 'react'
 import LoginOrRegisterButton from './LoginOrRegisterButton';
+import Cart from './Cart';
 
 const Header = () => {
     const dispatch = useAppDispatch();
@@ -11,7 +12,10 @@ const Header = () => {
             <div className='container mx-auto'>
                 <section className='flex justify-between'>
                     <div></div>
-                    <LoginOrRegisterButton />
+                    <div className='flex items-center gap-2'>
+                        <LoginOrRegisterButton />
+                        <Cart />
+                    </div>
                 </section>
             </div>
         </header>
