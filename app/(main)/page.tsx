@@ -1,7 +1,9 @@
 import AmazingOffersContainer from "@/components/homepage/AmazingOffersContainer";
+import Grid4BannerContainer from "@/components/homepage/Grid4BannerContainer";
 import ServicesContainer from "@/components/homepage/ServicesContainer";
 import SliderContainer from "@/components/homepage/SliderContainer";
 import AmazingOffersSkeleton from "@/components/skeletons/AmazingOffersSkeleton";
+import Grid4BannerSkeleton from "@/components/skeletons/Grid4BannerSkeleton";
 import MainSliderSkeleton from "@/components/skeletons/MainSliderSkeleton";
 import ServicesSkeleton from "@/components/skeletons/ServicesSkeleton";
 import { Metadata } from "next";
@@ -23,12 +25,15 @@ export default async function Home() {
       <Suspense fallback={<MainSliderSkeleton />}>
         <SliderContainer />
       </Suspense>
-      <div className="container mx-auto px-2">
+      <div className="container mx-auto px-2 pb-28">
         <Suspense fallback={<ServicesSkeleton />}>
           <ServicesContainer />
         </Suspense>
         <Suspense fallback={<AmazingOffersSkeleton />}>
           <AmazingOffersContainer />
+        </Suspense>
+        <Suspense fallback={<Grid4BannerSkeleton />}>
+          <Grid4BannerContainer />
         </Suspense>
       </div>
     </>
