@@ -14,6 +14,7 @@ const Header = () => {
                 <section className='flex justify-between items-center'>
                     <div>
                         <Logo />
+
                     </div>
                     <div className='flex items-center gap-2'>
                         <LoginOrRegisterButton />
