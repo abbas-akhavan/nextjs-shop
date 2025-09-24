@@ -1,9 +1,10 @@
 'use client'
+import { TimerObject } from '@/types/TimerObject';
 import React, { useEffect, useState } from 'react'
 
 const Timer = ({ endTime }: { endTime: string }) => {
-    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
-    function calculateTimeLeft() {
+    const [timeLeft, setTimeLeft] = useState<TimerObject | null>({ hours: 0, minutes: 0, seconds: 0 })
+    function calculateTimeLeft(): TimerObject | null {
         const difference = new Date(endTime).getTime() - new Date().getTime();
 
         if (difference <= 0) return null;
