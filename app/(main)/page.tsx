@@ -1,8 +1,10 @@
 import AmazingOffersContainer from "@/components/homepage/AmazingOffersContainer";
+import CategoriesContainer from "@/components/homepage/CategoriesContainer";
 import Grid4BannerContainer from "@/components/homepage/Grid4BannerContainer";
 import ServicesContainer from "@/components/homepage/ServicesContainer";
 import SliderContainer from "@/components/homepage/SliderContainer";
 import AmazingOffersSkeleton from "@/components/skeletons/AmazingOffersSkeleton";
+import CategoriesSkeleton from "@/components/skeletons/CategoriesSkeleton";
 import Grid4BannerSkeleton from "@/components/skeletons/Grid4BannerSkeleton";
 import MainSliderSkeleton from "@/components/skeletons/MainSliderSkeleton";
 import ServicesSkeleton from "@/components/skeletons/ServicesSkeleton";
@@ -34,6 +36,9 @@ export default async function Home() {
         </Suspense>
         <Suspense fallback={<Grid4BannerSkeleton />}>
           <Grid4BannerContainer />
+        </Suspense>
+        <Suspense fallback={<CategoriesSkeleton />}>
+          <CategoriesContainer />
         </Suspense>
       </div>
     </>
