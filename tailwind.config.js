@@ -6,6 +6,10 @@ module.exports = {
 		'./components/**/*.{html,js,jsx,tsx}'
 	],
 	theme: {
+		container: {
+			center: true,
+			padding: '.5rem'
+		},
 		extend: {
 			borderRadius: {
 				lg: 'var(--radius)',

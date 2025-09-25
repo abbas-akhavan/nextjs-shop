@@ -27,7 +27,7 @@ export default async function Home() {
       <Suspense fallback={<MainSliderSkeleton />}>
         <SliderContainer />
       </Suspense>
-      <div className="container mx-auto px-2 pb-28">
+      <div className="container pb-28">
         <Suspense fallback={<ServicesSkeleton />}>
           <ServicesContainer />
         </Suspense>
