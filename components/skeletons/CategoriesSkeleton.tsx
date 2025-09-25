@@ -13,7 +13,7 @@ const CategoriesSkeleton = () => {
                             {
                                 Array.from({ length: 2 }, (category, i) => (
                                     <div key={i} className='flex flex-col gap-3 items-center'>
-                                        <div className='skeleton-bg rounded-full size-20 md:size-[95px]' />
+                                        <div className='skeleton-bg rounded-full size-20 md:size-24' />
                                         <span className='skeleton-bg w-14 h-3 rounded-sm'></span>
                                     </div>
                                 ))

@@ -132,7 +132,7 @@ const CategoriesContainer = async () => {
                             {
                                 group.map((category, i) => (
                                     <Link href={category.link} key={i} className='flex flex-col gap-3 items-center'>
-                                        <Image className='rounded-full size-20 md:size-auto' src={category.image_url} alt={category.title} width={95} height={95} />
+                                        <Image className='rounded-full size-20 md:size-24' src={category.image_url} alt={category.title} width={85} height={85} />
                                         <span className='text-xs md:text-sm '>{category.title}</span>
                                     </Link>
                                 ))
