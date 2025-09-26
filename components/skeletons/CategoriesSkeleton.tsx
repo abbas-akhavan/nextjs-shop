@@ -5,7 +5,7 @@ import React from 'react'
 const CategoriesSkeleton = () => {
     return (
         <div className='flex flex-col items-center mt-8 overflow-hidden'>
-            <h3 className='text-sm sm:text-2xl'>خرید بر اساس دسته بندی</h3>
+            <h3 className='text-sm sm:text-2xl w-36 h-6 skeleton-bg rounded-sm'></h3>
             <div className='overflow-auto overflow-y-hidden hide-scrollbar flex gap-8 md:gap-16 mt-8'>
                 {
                     Array.from({ length: 9 }, (_, i) => (

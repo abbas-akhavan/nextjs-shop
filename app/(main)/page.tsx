@@ -1,5 +1,6 @@
 import AmazingOffersContainer from "@/components/homepage/AmazingOffersContainer";
 import CategoriesContainer from "@/components/homepage/CategoriesContainer";
+import Grid2BannerContainer from "@/components/homepage/Grid2BannerContainer";
 import Grid4BannerContainer from "@/components/homepage/Grid4BannerContainer";
 import ServicesContainer from "@/components/homepage/ServicesContainer";
 import SliderContainer from "@/components/homepage/SliderContainer";
@@ -39,6 +40,9 @@ export default async function Home() {
         </Suspense>
         <Suspense fallback={<CategoriesSkeleton />}>
           <CategoriesContainer />
+        </Suspense>
+        <Suspense fallback={<CategoriesSkeleton />}>
+          <Grid2BannerContainer />
         </Suspense>
       </div>
     </>
