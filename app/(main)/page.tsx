@@ -6,6 +6,7 @@ import ServicesContainer from "@/components/homepage/ServicesContainer";
 import SliderContainer from "@/components/homepage/SliderContainer";
 import AmazingOffersSkeleton from "@/components/skeletons/AmazingOffersSkeleton";
 import CategoriesSkeleton from "@/components/skeletons/CategoriesSkeleton";
+import Grid2BannerSkeleton from "@/components/skeletons/Grid2BannerSkeleton";
 import Grid4BannerSkeleton from "@/components/skeletons/Grid4BannerSkeleton";
 import MainSliderSkeleton from "@/components/skeletons/MainSliderSkeleton";
 import ServicesSkeleton from "@/components/skeletons/ServicesSkeleton";
@@ -28,7 +29,7 @@ export default async function Home() {
       <Suspense fallback={<MainSliderSkeleton />}>
         <SliderContainer />
       </Suspense>
-      <div className="container pb-28">
+      <div className="container">
         <Suspense fallback={<ServicesSkeleton />}>
           <ServicesContainer />
         </Suspense>
@@ -41,7 +42,7 @@ export default async function Home() {
         <Suspense fallback={<CategoriesSkeleton />}>
           <CategoriesContainer />
         </Suspense>
-        <Suspense fallback={<CategoriesSkeleton />}>
+        <Suspense fallback={<Grid2BannerSkeleton />}>
           <Grid2BannerContainer />
         </Suspense>
       </div>
