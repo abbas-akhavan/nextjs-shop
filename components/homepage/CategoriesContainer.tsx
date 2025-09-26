@@ -121,7 +121,7 @@ const CategoriesContainer = async () => {
     return (
         <div className='flex flex-col items-center mt-8 overflow-hidden'>
             <h3 className='text-sm sm:text-xl'>خرید بر اساس دسته بندی</h3>
-            <div className='overflow-auto overflow-y-hidden hide-scrollbar flex gap-8 md:gap-16 mt-8'>
+            <div className='overflow-auto overflow-y-hidden hide-scrollbar flex gap-8 md:gap-16 mt-8 max-w-full'>
                 {
                     chunkedData.map((group, i) => (
                         <div key={i} className='flex flex-col gap-6 md:gap-6 shrink-0'>
