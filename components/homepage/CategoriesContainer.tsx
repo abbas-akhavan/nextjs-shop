@@ -1,12 +1,8 @@
+import { Category } from '@/types/Category';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
-interface Category {
-    id: string;
-    title: string;
-    image_url: string;
-    link: string;
-}
+
 
 const categories: Category[] = [
     {
