@@ -7,7 +7,7 @@ import useAppStore from '@/store/useAppStore'
 const Cart = () => {
     const cart = useAppStore(state => state.cart)
     return (
-        <Button variant='secondary' className='size-9 relative' asChild>
+        <Button className='size-9 relative border border-slate-600 bg-transparent hover:bg-gray-900' asChild>
             <Link href='/cart'>
                 <ShoppingCartIcon className='!size-6' />
                 {

@@ -39,11 +39,11 @@ const LoginOrRegisterButton = () => {
         <>
             {
                 user?.isLoggedIn
-                    ? <Button variant="destructive" className='!size-9 md:!w-auto md:!h-9' onClick={() => signOut()}>
+                    ? <Button variant="destructive" className='!size-9 md:!w-auto md:!h-9 ' onClick={() => signOut()}>
                         <ArrowLeftStartOnRectangleIcon className='!size-6' />
                         <span className='hidden md:inline-block'>خروج</span>
                     </Button>
-                    : <Button variant='secondary' asChild className='!size-9 md:!w-auto md:!h-9'>
+                    : <Button asChild className='!size-9 md:!w-auto md:!h-9 border border-slate-600 bg-transparent hover:bg-gray-900'>
                         <Link href="/auth/login" >
                             <ArrowLeftEndOnRectangleIcon className='!size-6' />
                             <span className='hidden md:inline-block'>ورود | ثبت نام</span>
