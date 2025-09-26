@@ -1,12 +1,7 @@
+import { PartnerShip } from '@/types/PartnerShip';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
-interface PartnerShip {
-    id: string;
-    title: string;
-    banner: string;
-    link: string;
-}
 
 const partnerShips: PartnerShip[] = [
     {
