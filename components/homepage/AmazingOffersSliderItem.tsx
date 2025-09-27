@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import React from 'react'
 import Price from '../shared/Price'
@@ -6,14 +7,14 @@ import { AmazingOffer } from '@/types/AmazingOffer'
 import DiscountPercent from '../shared/DiscountPercent'
 
 const AmazingOffersSliderItem = ({ item, isFirst }: { item: AmazingOffer, isFirst: boolean }) => {
-    const { product } = item;
-    const disCountPercent = (item.old_price - item.new_price) / item.old_price * 100;
+    const { products } = item;
+    const disCountPercent = Math.floor((item.old_price - item.new_price) / item.old_price * 100);
     return (
-        <Link href={`/products/${product.id}`}
+        <Link href={`/products/${products.id}`}
             className={`bg-white flex flex-col p-2 text-xs gap-2 ${isFirst ? 'rounded-tr-md rounded-br-md' : ''}`}
         >
-            <Image width={132} height={132} src={product.image_url} alt={product.name} className='mx-auto min-h-[132px] object-cover' />
-            <h3 className='text-gray-500  line-clamp-2 leading-5 h-[40px]'>{product.name + product.name}</h3>
+            <Image width={132} height={132} src={products.image_url} alt={products.name} className='mx-auto min-h-[132px] object-cover' />
+            <h3 className='text-gray-500  line-clamp-2 leading-5 h-[40px]'>{products.name}</h3>
             <div className='text-gray-700 flex justify-between items-center'>
                 <DiscountPercent value={disCountPercent} />
                 <Price value={item.new_price} />

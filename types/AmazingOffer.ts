@@ -2,11 +2,11 @@ import { Product } from "./Product";
 
 export interface AmazingOffer {
     id: string;
-    discount_percent: number;
+    created_at: string;
+    product_id: number;
     old_price: number;
     new_price: number;
-    start_date: string;
-    end_date: string;
+    priority: number;
     is_active: boolean;
-    product: Product;
+    products: Product;
 }
