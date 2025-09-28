@@ -121,15 +121,15 @@ const CategoriesContainer = async () => {
     return (
         <div className='flex flex-col items-center mt-8 overflow-hidden'>
             <h3 className='text-sm sm:text-xl'>خرید بر اساس دسته بندی</h3>
-            <div className='overflow-auto overflow-y-hidden hide-scrollbar flex gap-8 md:gap-16 mt-8 max-w-full'>
+            <div className='overflow-auto overflow-y-hidden hide-scrollbar flex gap-6 md:gap-16 mt-8 max-w-full'>
                 {
                     chunkedData.map((group, i) => (
-                        <div key={i} className='flex flex-col gap-6 md:gap-6 shrink-0'>
+                        <div key={i} className='w-20 md:w-auto flex flex-col gap-6 md:gap-6 shrink-0'>
                             {
                                 group.map((category, i) => (
                                     <Link href={category.link} key={i} className='flex flex-col gap-3 items-center'>
-                                        <Image className='rounded-full size-20 md:size-24' src={category.image_url} alt={category.title} width={85} height={85} />
-                                        <span className='text-xs md:text-sm '>{category.title}</span>
+                                        <Image className='rounded-full size-16 md:size-24' src={category.image_url} alt={category.title} width={85} height={85} />
+                                        <span className='text-xs md:text-sm text-center'>{category.title}</span>
                                     </Link>
                                 ))
                             }
