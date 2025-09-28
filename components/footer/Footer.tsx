@@ -4,142 +4,143 @@ import { Button } from '../ui/button'
 import { ChevronUpIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import Link from 'next/link'
-const advantages = [
-    {
-        id: 'advantage-1',
-        image_url: '/footer/express-delivery.svg',
-        title: 'امکان تحویل اکسپرس'
-    },
-    {
-        id: 'advantage-2',
-        image_url: '/footer/cash-on-delivery.svg',
-        title: 'امکان پرداخت در محل'
-    },
-    {
-        id: 'advantage-3',
-        image_url: '/footer/support.svg',
-        title: '7 روز هفته ، 24 ساعته'
-    },
-    {
-        id: 'advantage-4',
-        image_url: '/footer/days-return.svg',
-        title: 'هفت روز ضمانت بازگشت کالا'
-    },
-    ,
-    {
-        id: 'advantage-5',
-        image_url: '/footer/original-products.svg',
-        title: 'ضمانت اصل بودن کالا'
-    }
-]
 
-const menuItems = [
-    // راهنمای خرید از دیجی‌کالا (DigiKala Shopping Guide)
-    {
-        category: "با دیجی‌کالا",
-        items: [
-            {
-                title: "اتاق خبر دیجی‌کالا",
-                url: "#",
-                description: "آخرین اخبار و اطلاعیه‌های دیجی‌کالا"
-            },
-            {
-                title: "فروش در دیجی‌کالا",
-                url: "#",
-                description: "راهنمای فروشندگان برای فروش در پلتفرم"
-            },
-            {
-                title: "فرصت‌های شغلی",
-                url: "#",
-                description: "موقعیت‌های کاری موجود در دیجی‌کالا"
-            },
-            {
-                title: "گزارش تخلف در دیجی‌کالا",
-                url: "#",
-                description: "گزارش موارد مشکوک و تخلف"
-            },
-            {
-                title: "تماس با دیجی‌کالا",
-                url: "#",
-                description: "راه‌های ارتباط با پشتیبانی"
-            },
-            {
-                title: "درباره دیجی‌کالا",
-                url: "#",
-                description: "معرفی شرکت و تاریخچه فعالیت"
-            }
-        ]
-    },
-    {
-        category: "خدمات مشتریان",
-        items: [
-            {
-                title: "پاسخ به پرسش‌های متداول",
-                url: "#",
-                description: "پاسخ سؤالات رایج کاربران"
-            },
-            {
-                title: "رویه‌های بازگرداندن کالا",
-                url: "#",
-                description: "شرایط و نحوه مرجوع کردن محصولات"
-            },
-            {
-                title: "شرایط استفاده",
-                url: "#",
-                description: "قوانین و مقررات استفاده از سایت"
-            },
-            {
-                title: "حریم خصوصی",
-                url: "#",
-                description: "سیاست حفاظت از اطلاعات شخصی کاربران"
-            },
-            {
-                title: "گزارش باگ",
-                url: "#",
-                description: "گزارش مشکلات فنی سایت"
-            }
-        ]
-    },
-    {
-        category: "راهنمای خرید از دیجی‌کالا",
-        items: [
-            {
-                title: "نحوه ثبت سفارش",
-                url: "#",
-                description: "راهنمای مرحله به مرحله ثبت سفارش"
-            },
-            {
-                title: "رویه ارسال سفارش",
-                url: "#",
-                description: "اطلاعات مربوط به نحوه ارسال کالاها"
-            },
-            {
-                title: "شیوه‌های پرداخت",
-                url: "#",
-                description: "روش‌های مختلف پرداخت آنلاین و غیر آنلاین"
-            }
-        ]
-    }
-];
-const socialLinks = [
-    {
-        icon: '#instagram',
-        url: '#'
-    },
-    {
-        icon: '#twitter',
-        url: '#'
-    },
-    {
-        icon: '#linkedin',
-        url: '#'
-    },
-    {
-        icon: '#aparat',
-        url: '#'
-    },
-]
 const Footer = () => {
+    const advantages = [
+        {
+            id: 'advantage-1',
+            image_url: '/footer/express-delivery.svg',
+            title: 'امکان تحویل اکسپرس'
+        },
+        {
+            id: 'advantage-2',
+            image_url: '/footer/cash-on-delivery.svg',
+            title: 'امکان پرداخت در محل'
+        },
+        {
+            id: 'advantage-3',
+            image_url: '/footer/support.svg',
+            title: '7 روز هفته ، 24 ساعته'
+        },
+        {
+            id: 'advantage-4',
+            image_url: '/footer/days-return.svg',
+            title: 'هفت روز ضمانت بازگشت کالا'
+        },
+        ,
+        {
+            id: 'advantage-5',
+            image_url: '/footer/original-products.svg',
+            title: 'ضمانت اصل بودن کالا'
+        }
+    ];
+
+    const menuItems = [
+        // راهنمای خرید از دیجی‌کالا (DigiKala Shopping Guide)
+        {
+            category: "با دیجی‌کالا",
+            items: [
+                {
+                    title: "اتاق خبر دیجی‌کالا",
+                    url: "#",
+                    description: "آخرین اخبار و اطلاعیه‌های دیجی‌کالا"
+                },
+                {
+                    title: "فروش در دیجی‌کالا",
+                    url: "#",
+                    description: "راهنمای فروشندگان برای فروش در پلتفرم"
+                },
+                {
+                    title: "فرصت‌های شغلی",
+                    url: "#",
+                    description: "موقعیت‌های کاری موجود در دیجی‌کالا"
+                },
+                {
+                    title: "گزارش تخلف در دیجی‌کالا",
+                    url: "#",
+                    description: "گزارش موارد مشکوک و تخلف"
+                },
+                {
+                    title: "تماس با دیجی‌کالا",
+                    url: "#",
+                    description: "راه‌های ارتباط با پشتیبانی"
+                },
+                {
+                    title: "درباره دیجی‌کالا",
+                    url: "#",
+                    description: "معرفی شرکت و تاریخچه فعالیت"
+                }
+            ]
+        },
+        {
+            category: "خدمات مشتریان",
+            items: [
+                {
+                    title: "پاسخ به پرسش‌های متداول",
+                    url: "#",
+                    description: "پاسخ سؤالات رایج کاربران"
+                },
+                {
+                    title: "رویه‌های بازگرداندن کالا",
+                    url: "#",
+                    description: "شرایط و نحوه مرجوع کردن محصولات"
+                },
+                {
+                    title: "شرایط استفاده",
+                    url: "#",
+                    description: "قوانین و مقررات استفاده از سایت"
+                },
+                {
+                    title: "حریم خصوصی",
+                    url: "#",
+                    description: "سیاست حفاظت از اطلاعات شخصی کاربران"
+                },
+                {
+                    title: "گزارش باگ",
+                    url: "#",
+                    description: "گزارش مشکلات فنی سایت"
+                }
+            ]
+        },
+        {
+            category: "راهنمای خرید از دیجی‌کالا",
+            items: [
+                {
+                    title: "نحوه ثبت سفارش",
+                    url: "#",
+                    description: "راهنمای مرحله به مرحله ثبت سفارش"
+                },
+                {
+                    title: "رویه ارسال سفارش",
+                    url: "#",
+                    description: "اطلاعات مربوط به نحوه ارسال کالاها"
+                },
+                {
+                    title: "شیوه‌های پرداخت",
+                    url: "#",
+                    description: "روش‌های مختلف پرداخت آنلاین و غیر آنلاین"
+                }
+            ]
+        }
+    ];
+    const socialLinks = [
+        {
+            icon: '#instagram',
+            url: '#'
+        },
+        {
+            icon: '#twitter',
+            url: '#'
+        },
+        {
+            icon: '#linkedin',
+            url: '#'
+        },
+        {
+            icon: '#aparat',
+            url: '#'
+        },
+    ]
     return (
         <footer className='mt-10 border-t border-t-slate-600 hidden md:block'>
             <div className='container py-7'>
@@ -157,9 +158,9 @@ const Footer = () => {
                 </div>
                 <div className='flex justify-around mt-10'>
                     {
-                        advantages.map(advantage => (
-                            <div key={advantage.id} className='flex flex-col gap-2 items-center'>
-                                <Image src={advantage.image_url} alt={advantage.title} width={56} height={56} />
+                        advantages.map((advantage, i) => (
+                            <div key={advantage ? advantage.id : i} className='flex flex-col gap-2 items-center'>
+                                <Image src={advantage ? advantage.image_url : ''} alt={advantage ? advantage.title : ''} width={56} height={56} />
                                 <span className='text-xs'>{advantage?.title}</span>
                             </div>
                         ))
