@@ -38,6 +38,9 @@ import React from 'react'
 const Grid4BannerContainer = async () => {
     const data: PartnerShip[] = await fetchFromSupabase('partner_ships', {
         select: '*',
+        filters: {
+            'banner_type': 'eq.square'
+        }
     })
     return (
         <div className='grid grid-cols-2 md:grid-cols-4 gap-5 mt-5'>
