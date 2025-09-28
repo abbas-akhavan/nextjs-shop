@@ -1,6 +1,7 @@
 export interface Category {
     id: string;
-    title: string;
+    name: string;
     image_url: string;
-    link: string;
+    parent_id: string;
+    created_at: string;
 }
