@@ -8,7 +8,7 @@ module.exports = {
 	theme: {
 		container: {
 			center: true,
-			padding: '.5rem'
+			padding: '1rem'
 		},
 		extend: {
 			borderRadius: {

@@ -11,7 +11,9 @@ const SingleProduct = async ({ params }: { params: { pid: string } }) => {
     })
     const product: Product = data[0];
     return (
-        <div>{product.name}</div>
+        <div className='grid grid-cols-[4fr_8fr]'>
+            <div></div>
+        </div>
     )
 }
 
