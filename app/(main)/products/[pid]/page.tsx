@@ -1,18 +1,23 @@
+import ProductGallary from '@/components/product/ProductGallary';
+import ProductSummaryInfo from '@/components/product/ProductSummaryInfo';
 import { fetchFromSupabase } from '@/lib/helpers/supabase-ssr'
 import { Product } from '@/types/Product';
+import { notFound } from 'next/navigation';
 import React from 'react'
 
-const SingleProduct = async ({ params }: { params: { pid: string } }) => {
+const SingleProduct = async ({ params }: { params: Promise<{ pid: string }> }) => {
     const { pid } = await params;
     const data: Product[] = await fetchFromSupabase('products', {
         filters: {
             'id': `eq.${pid}`
         }
     })
-    const product: Product = data[0];
+    const product = data?.[0];
+    if (!product) notFound();
     return (
-        <div className='grid grid-cols-[4fr_8fr]'>
-            <div></div>
+        <div className='container mt-7 grid grid-cols-[4fr_8fr] gap-x-4'>
+            <ProductGallary src={product.image_url} alt={product.name} />
+            <ProductSummaryInfo product={product} />
         </div>
     )
 }

@@ -1,7 +1,7 @@
+import { Product } from "./Product";
+
 export interface CartItem {
-    id: string;
-    name: string;
-    price: number;
+    product: Product;
     quantity: number;
 }
 
@@ -13,7 +13,7 @@ export interface User {
 export interface AppState {
     //cart
     cart: CartItem[];
-    addToCart: (item: CartItem) => void;
+    addToCart: (item: Product) => void;
     removeFromCart: (id: string) => void;
     clearCart: () => void;
     //user
