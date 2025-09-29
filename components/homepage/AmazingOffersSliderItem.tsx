@@ -19,7 +19,7 @@ const AmazingOffersSliderItem = ({ item, isFirst }: { item: AmazingOffer, isFirs
                 <DiscountPercent value={disCountPercent} />
                 <Price value={item.new_price} />
             </div>
-            <div className='line-through text-gray-300 text-left pl-5'>{item.old_price}</div>
+            <div className='line-through text-gray-300 text-left pl-5'>{item.old_price.toLocaleString('fa-IR')}</div>
         </Link>
     )
 }

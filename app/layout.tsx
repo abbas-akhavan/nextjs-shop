@@ -17,12 +17,12 @@ const iranYekan = localFont({
       style: 'normal'
     },
     {
-      path: '../public/fonts/iranYekan/Qs_Iranyekan_medium.ttf',
+      path: '../public/fonts/iranYekan/Qs_Iranyekan.ttf',
       weight: '400',
       style: 'normal'
     },
     {
-      path: '../public/fonts/iranYekan/Qs_Iranyekan.ttf',
+      path: '../public/fonts/iranYekan/Qs_Iranyekan_medium.ttf',
       weight: '500',
       style: 'normal'
     },
@@ -50,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="rtl" className={iranYekan.className}>
+    <html lang="fa" dir="rtl" className={iranYekan.className}>
       <body className="bg-gradient-to-br from-gray-800 to-slate-900 text-white min-h-screen">
         <ReduxProvider>
           {children}
