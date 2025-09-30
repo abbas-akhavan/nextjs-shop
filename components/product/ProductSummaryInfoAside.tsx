@@ -18,17 +18,6 @@ const ProductSummaryInfoAside = ({ product }: Props) => {
     const router = useRouter();
     async function handleAddToCart() {
         if (!user) return router.push('/auth/login')
-
-        const { data: cartId } = await supabase.rpc('get_or_create_active_cart');
-        const { data, error } = await supabase.rpc('add_item_to_cart', {
-            _cart_id: cartId,
-            _product_id: product.id,
-            _qty: 1
-        });
-        if (error) {
-            toast.error(error.message)
-            return
-        }
         addToCart(product);
     }
     return (
