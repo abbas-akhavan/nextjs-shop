@@ -8,6 +8,7 @@ export interface CartItem {
 export interface User {
     email: string;
     isLoggedIn: boolean;
+    token: string;
 }
 
 export interface AppState {
