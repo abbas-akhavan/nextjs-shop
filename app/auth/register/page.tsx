@@ -34,13 +34,13 @@ const Auth = () => {
 
     async function signUp(data: LoginFormData) {
         setLoading(true);
-        const { error } = await supabase.auth.signUp({ email: data.email, password: data.password });
+        const { data: signUpData, error } = await supabase.auth.signUp({ email: data.email, password: data.password });
         setLoading(false);
         if (error) {
             toast.error(error.message)
         }
         else {
-            login({ email: data.email });
+            login({ email: data.email, token: signUpData?.session?.access_token || '' });
             toast.success('ثبت‌ نام موفق! ایمیل خودت رو چک کن')
             router.push("/")
         }
