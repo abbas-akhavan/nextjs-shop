@@ -6,6 +6,8 @@ import Price from '../shared/Price';
 import { Button } from '../ui/button';
 import useAppStore from '@/store/useAppStore';
 import { useRouter } from 'next/navigation';
+import { supabase } from '@/utils/supabaseClient';
+import toast from 'react-hot-toast';
 
 interface Props {
     product: Product;
@@ -14,8 +16,19 @@ const ProductSummaryInfoAside = ({ product }: Props) => {
     const addToCart = useAppStore(state => state.addToCart)
     const user = useAppStore(state => state.user)
     const router = useRouter();
-    function handleAddToCart() {
-        if (!user) router.push('/auth/login')
+    async function handleAddToCart() {
+        if (!user) return router.push('/auth/login')
+
+        const { data: cartId } = await supabase.rpc('get_or_create_active_cart');
+        const { data, error } = await supabase.rpc('add_item_to_cart', {
+            _cart_id: cartId,
+            _product_id: product.id,
+            _qty: 1
+        });
+        if (error) {
+            toast.error(error.message)
+            return
+        }
         addToCart(product);
     }
     return (
