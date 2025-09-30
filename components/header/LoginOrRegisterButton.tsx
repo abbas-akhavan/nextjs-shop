@@ -26,10 +26,10 @@ const LoginOrRegisterButton = () => {
     }
 
     useEffect(() => {
-        supabase.auth.getUser()
-            .then(({ data }) => {
-                if (data.user?.email) {
-                    login({ email: data.user?.email })
+        supabase.auth.getSession()
+            .then(({ data: { session } }) => {
+                if (session?.user?.email) {
+                    login({ email: session.user?.email, token: session.access_token })
                 } else {
                     logout()
                 }
