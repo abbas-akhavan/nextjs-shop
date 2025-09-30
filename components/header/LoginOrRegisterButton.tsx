@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowLeftEndOnRectangleIcon, ArrowLeftStartOnRectangleIcon } from '@heroicons/react/24/solid';
 import { useAppDispatch, useAppSelector } from '@/lib/store/hooks';
 import { supabase } from '@/utils/supabaseClient';
@@ -12,6 +12,7 @@ const LoginOrRegisterButton = () => {
     const user = useAppStore((state) => state.user)
     const login = useAppStore((state) => state.login);
     const logout = useAppStore((state) => state.logout);
+    const [loading, setLoading] = useState(true);
 
     async function signOut() {
         const { error } = await supabase.auth.signOut();
@@ -32,9 +33,13 @@ const LoginOrRegisterButton = () => {
                 } else {
                     logout()
                 }
+                setLoading(false)
             })
     }, []);
 
+    if (loading) return (
+        <div className='skeleton-bg w-28 rounded-sm h-9'></div>
+    )
     return (
         <>
             {
