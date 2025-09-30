@@ -7,7 +7,7 @@ import useAppStore from '@/store/useAppStore'
 
 const Cart = () => {
     const cart = useAppStore(state => state.cart)
-    const cartCount = cart.reduce((total, cartItem) => total + cartItem.quantity, 0)
+    const cartCount = cart.cartItems.reduce((total, cartItem) => total + cartItem.quantity, 0)
     const user = useAppStore(state => state.user);
 
 
@@ -17,7 +17,7 @@ const Cart = () => {
             <Link href='/cart'>
                 <ShoppingCartIcon className='!size-6' />
                 {
-                    cart.length > 0
+                    cart.cartItems.length > 0
                         ? <span className='bg-red-600 absolute -top-1 -right-1 text-white size-4 rounded-sm text-xs flex items-center justify-center'>
                             {cartCount}
                         </span>

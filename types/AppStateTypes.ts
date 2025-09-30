@@ -5,6 +5,11 @@ export interface CartItem {
     quantity: number;
 }
 
+interface Cart {
+    loading: boolean;
+    cartItems: CartItem[];
+}
+
 export interface User {
     email: string;
     isLoggedIn: boolean;
@@ -13,7 +18,7 @@ export interface User {
 
 export interface AppState {
     //cart
-    cart: CartItem[];
+    cart: Cart;
     addToCart: (item: Product) => void;
     removeFromCart: (id: string) => void;
     clearCart: () => void;

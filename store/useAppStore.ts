@@ -5,8 +5,15 @@ import toast from 'react-hot-toast';
 import { create } from 'zustand';
 
 const useAppStore = create<AppState>((set) => ({
-    cart: [],
+    cart: {
+        cartItems: [],
+        loading: false
+    },
     addToCart: async (productToAdd) => {
+        set(state => ({
+            cart: { ...state.cart, loading: true }
+        }))
+
         const { data: cartId } = await supabase.rpc('get_or_create_active_cart');
         const { data, error } = await supabase.rpc('add_item_to_cart', {
             _cart_id: cartId,
@@ -18,19 +25,67 @@ const useAppStore = create<AppState>((set) => ({
         }
 
         set((state) => {
-            const existing = state.cart.find((cartItem) => cartItem.product.id === productToAdd.id);
+            const existing = state.cart.cartItems.find((cartItem) => cartItem.product.id === productToAdd.id);
             if (existing) {
                 return {
-                    cart: state.cart.map((cartItem) =>
-                        cartItem.product.id === productToAdd.id ? { ...cartItem, quantity: (cartItem.quantity + 1) } : cartItem
-                    )
+                    cart: {
+                        cartItems: state.cart.cartItems.map((cartItem) =>
+                            cartItem.product.id === productToAdd.id ? { ...cartItem, quantity: (cartItem.quantity + 1) } : cartItem
+                        ),
+                        loading: false
+                    }
                 }
             }
-            return { cart: [...state.cart, { product: productToAdd, quantity: 1 }] }
+            return {
+                cart: {
+                    cartItems: [...state.cart.cartItems, { product: productToAdd, quantity: 1 }],
+                    loading: false
+                }
+            }
         })
     },
-    removeFromCart: (id) => set((state) => ({ cart: state.cart.filter((cartItem) => cartItem.product.id !== id) })),
-    clearCart: () => set({ cart: [] }),
+    removeFromCart: async (id) => {
+        set(state => ({
+            cart: { ...state.cart, loading: true }
+        }))
+        const { data: cartId } = await supabase.rpc('get_or_create_active_cart');
+        const { data, error } = await supabase.rpc('add_item_to_cart', {
+            _cart_id: cartId,
+            _product_id: id,
+            _qty: 1
+        });
+        if (error) {
+            toast.error(error.message)
+        }
+
+        set((state) => {
+            const product = state.cart.cartItems.find(cartItem => cartItem.product.id === id);
+            const quantity = product?.quantity;
+            if (quantity === 1) {
+                return {
+                    cart: {
+                        cartItems: state.cart.cartItems.filter((cartItem) => cartItem.product.id !== id),
+                        loading: false
+                    }
+                }
+            }
+
+            return {
+                cart: {
+                    cartItems: state.cart.cartItems.map((cartItem) => (
+                        cartItem.product.id === id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
+                    )),
+                    loading: false
+                }
+            }
+        })
+    },
+    clearCart: () => set({
+        cart: {
+            cartItems: [],
+            loading: false
+        }
+    }),
     user: null,
     login: async (user) => {
         //set ser
@@ -45,17 +100,25 @@ const useAppStore = create<AppState>((set) => ({
             },
             userToken: user.token
         })
-        console.log(cartItems)
         set({
-            cart: cartItems?.map((row) => ({
-                product: row.product,
-                quantity: row.quantity
-            })) || []
+            cart: {
+                cartItems: cartItems?.map((row) => ({
+                    product: row.product,
+                    quantity: row.quantity
+                })) || [],
+                loading: false
+            }
         });
 
 
     },
-    logout: () => set({ user: null, cart: [] })
+    logout: () => set({
+        user: null,
+        cart: {
+            cartItems: [],
+            loading: false
+        }
+    })
 }));
 
 export default useAppStore;
