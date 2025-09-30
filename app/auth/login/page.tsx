@@ -32,14 +32,14 @@ const Auth = () => {
 
     async function signIn(data: LoginFormData) {
         setLoading(true);
-        const { error } = await supabase.auth.signInWithPassword({ email: data.email, password: data.password });
+        const { data: signInData, error } = await supabase.auth.signInWithPassword({ email: data.email, password: data.password });
         setLoading(false);
         if (error) {
             toast.error(error.message)
         }
         else {
             toast.success('ورود با موفقیت انجام شد');
-            login({ email: data.email });
+            login({ email: data.email, token: signInData.session.access_token });
             router.push("/");
         }
     }
