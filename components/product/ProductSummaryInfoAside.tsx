@@ -5,13 +5,17 @@ import React from 'react'
 import Price from '../shared/Price';
 import { Button } from '../ui/button';
 import useAppStore from '@/store/useAppStore';
+import { useRouter } from 'next/navigation';
 
 interface Props {
     product: Product;
 }
 const ProductSummaryInfoAside = ({ product }: Props) => {
     const addToCart = useAppStore(state => state.addToCart)
+    const user = useAppStore(state => state.user)
+    const router = useRouter();
     function handleAddToCart() {
+        if (!user) router.push('/auth/login')
         addToCart(product);
     }
     return (
