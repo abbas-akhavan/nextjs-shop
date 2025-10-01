@@ -29,21 +29,26 @@ const ProductSummaryInfoAside = ({ product }: Props) => {
                 <BuildingStorefrontIcon className='w-6 h-6' />
                 <span>دیجی کالا</span>
             </div>
-            <hr className='border-slate-500' />
-            <div className='flex justify-end'>
-                <Price value={product.price} />
+            <hr className='hidden lg:block border-slate-500' />
+            <div className='fixed bottom-0 left-0 w-full flex flex-row-reverse justify-between bg-slate-900 p-3 border-t border-slate-700 gap-3 lg:flex-col lg:static lg:bg-inherit lg:p-0'>
+                <div className='flex justify-end'>
+                    <Price value={product.price} />
+                </div>
+                <div>
+                    {
+                        productInCart && productInCart?.quantity > 0
+                            ? <CartButton product={product} />
+                            : <Button disabled={cart.loading} onClick={handleAddToCart} className='bg-digikala hover:bg-digikala'>
+                                {
+                                    cart.loading
+                                        ? <Spiner />
+                                        : 'افزودن به سبد خرید'
+                                }
+                            </Button>
+                    }
+                </div>
+
             </div>
-            {
-                productInCart && productInCart?.quantity > 0
-                    ? <CartButton product={product} />
-                    : <Button disabled={cart.loading} onClick={handleAddToCart} className='bg-digikala hover:bg-digikala'>
-                        {
-                            cart.loading
-                                ? <Spiner />
-                                : 'افزودن به سبد خرید'
-                        }
-                    </Button>
-            }
         </div>
     )
 }

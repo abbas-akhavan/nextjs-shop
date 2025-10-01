@@ -10,7 +10,7 @@ interface Props {
 const ProductGallary = ({ src, alt }: Props) => {
     return (
         <div>
-            <Image className='rounded-md' src={src ?? '/public/images/imagePlaceholder.png'} alt={alt ?? 'Product image'} width={800} height={800} />
+            <Image className='rounded-md mx-auto' src={src ?? '/public/images/imagePlaceholder.png'} alt={alt ?? 'Product image'} width={800} height={800} />
         </div>
     )
 }
