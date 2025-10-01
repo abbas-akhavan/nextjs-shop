@@ -36,7 +36,7 @@ const Cart = () => {
             </HoverCardTrigger>
             {
                 cartCount > 0 &&
-                <HoverCardContent className='w-96 bg-gray-700 shadow-md rounded-md' align='end'>
+                <HoverCardContent className='hidden md:block w-96 bg-gray-700 shadow-md rounded-md' align='end'>
                     <div className='p-2 text-sm'>{toPersianNumber(cartCount)} کالا</div>
                     <hr className='border-gray-600' />
                     <div className='p-3 max-h-64 overflow-y-auto flex flex-col gap-3'>
