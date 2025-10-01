@@ -38,7 +38,7 @@ const ProductSummaryInfoAside = ({ product }: Props) => {
                     {
                         productInCart && productInCart?.quantity > 0
                             ? <CartButton product={product} />
-                            : <Button disabled={cart.loading} onClick={handleAddToCart} className='bg-digikala hover:bg-digikala'>
+                            : <Button disabled={cart.loading} onClick={handleAddToCart} className='bg-digikala hover:bg-digikala lg:w-full'>
                                 {
                                     cart.loading
                                         ? <Spiner />
