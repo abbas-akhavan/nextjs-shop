@@ -49,13 +49,15 @@ const useAppStore = create<AppState>((set) => ({
             cart: { ...state.cart, loading: true }
         }))
         const { data: cartId } = await supabase.rpc('get_or_create_active_cart');
-        const { data, error } = await supabase.rpc('add_item_to_cart', {
-            _cart_id: cartId,
-            _product_id: id,
-            _qty: 1
-        });
+        const { data, error } = await supabase
+            .rpc('remove_item_from_cart', { _cart_id: cartId, _product_id: id, _qty: 1 });
+
         if (error) {
             toast.error(error.message)
+            set(state => ({
+                cart: { ...state.cart, loading: false }
+            }))
+            return
         }
 
         set((state) => {
