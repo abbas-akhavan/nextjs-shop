@@ -6,3 +6,7 @@ export function chunk<T>(array: T[], size: number): T[][] {
 
     return result
 }
+
+export function toPersianNumber(value: number): string {
+    return value.toLocaleString('fa-IR')
+}
