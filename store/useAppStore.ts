@@ -7,7 +7,7 @@ import { create } from 'zustand';
 const useAppStore = create<AppState>((set) => ({
     cart: {
         cartItems: [],
-        loading: false
+        loading: true
     },
     addToCart: async (productToAdd) => {
         set(state => ({
