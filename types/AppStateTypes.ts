@@ -10,10 +10,16 @@ interface Cart {
     cartItems: CartItem[];
 }
 
-export interface User {
+export interface UserInfo {
     email: string;
     isLoggedIn: boolean;
     token: string;
+
+}
+
+export interface User {
+    isLoading: boolean;
+    userInfo: UserInfo | null;
 }
 
 export interface AppState {
@@ -23,7 +29,7 @@ export interface AppState {
     removeFromCart: (id: string) => void;
     clearCart: () => void;
     //user
-    user: User | null;
-    login: (user: Omit<User, "isLoggedIn">) => void;
+    user: User;
+    login: (user: Omit<UserInfo, "isLoggedIn">) => void;
     logout: () => void;
 }

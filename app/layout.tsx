@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./input.css";
 import { Toaster } from "react-hot-toast";
 import { ReduxProvider } from "@/providers/ReduxProvider";
-import ReactQueryProvider from "@/providers/ReactQueryProvider";
+import Providers from "@/providers/Providers";
 
 const iranYekan = localFont({
   src: [
@@ -53,9 +53,9 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" className={iranYekan.className}>
       <body className="bg-gradient-to-br from-gray-800 to-slate-900 text-white min-h-screen">
-        <ReactQueryProvider>
+        <Providers>
           {children}
-        </ReactQueryProvider>
+        </Providers>
         <Toaster toastOptions={{
           className: "!bg-gray-100 !text-black"
         }} />

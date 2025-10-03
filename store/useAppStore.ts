@@ -88,10 +88,13 @@ const useAppStore = create<AppState>((set) => ({
             loading: false
         }
     }),
-    user: null,
+    user: {
+        isLoading: true,
+        userInfo: null
+    },
     login: async (user) => {
         //set ser
-        set({ user: { ...user, isLoggedIn: true } })
+        set({ user: { isLoading: false, userInfo: { ...user, isLoggedIn: true } } })
 
         //get user cart
         const { data: cartId } = await supabase.rpc('get_or_create_active_cart');
@@ -111,11 +114,12 @@ const useAppStore = create<AppState>((set) => ({
                 loading: false
             }
         });
-
-
     },
     logout: () => set({
-        user: null,
+        user: {
+            isLoading: false,
+            userInfo: null
+        },
         cart: {
             cartItems: [],
             loading: false

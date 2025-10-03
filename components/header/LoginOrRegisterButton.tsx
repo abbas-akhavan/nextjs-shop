@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import { ArrowLeftEndOnRectangleIcon, ArrowLeftStartOnRectangleIcon } from '@heroicons/react/24/solid';
-import { useAppDispatch, useAppSelector } from '@/lib/store/hooks';
 import { supabase } from '@/utils/supabaseClient';
 import { login, logout } from '@/lib/store/features/auth/authSlice';
 import Link from 'next/link';
@@ -10,13 +9,10 @@ import { Button } from '../ui/button';
 import useAppStore from '@/store/useAppStore';
 const LoginOrRegisterButton = () => {
     const user = useAppStore((state) => state.user)
-    const login = useAppStore((state) => state.login);
     const logout = useAppStore((state) => state.logout);
-    const [loading, setLoading] = useState(true);
 
     async function signOut() {
         const { error } = await supabase.auth.signOut();
-
         if (error) {
             toast.error(error.message)
         } else {
@@ -25,25 +21,14 @@ const LoginOrRegisterButton = () => {
         }
     }
 
-    useEffect(() => {
-        supabase.auth.getSession()
-            .then(({ data: { session } }) => {
-                if (session?.user?.email) {
-                    login({ email: session.user?.email, token: session.access_token })
-                } else {
-                    logout()
-                }
-                setLoading(false)
-            })
-    }, []);
-
-    if (loading) return (
+    if (user.isLoading) return (
         <div className='skeleton-bg w-28 rounded-sm h-9'></div>
     )
+
     return (
         <>
             {
-                user?.isLoggedIn
+                user.userInfo?.isLoggedIn
                     ? <Button variant="destructive" className='!size-9 md:!w-auto md:!h-9 ' onClick={() => signOut()}>
                         <ArrowLeftStartOnRectangleIcon className='!size-6' />
                         <span className='hidden md:inline-block'>خروج</span>
