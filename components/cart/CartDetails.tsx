@@ -1,65 +1,66 @@
 'use client'
-import { fetchFromSupabase } from '@/lib/helpers/supabase-ssr';
 import useAppStore from '@/store/useAppStore';
-import { CartItem } from '@/types/AppStateTypes';
-import { supabase } from '@/utils/supabaseClient';
-import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react'
-import CartButton from '../shared/CartButton';
 import Price from '../shared/Price';
 import LoadingComponent from '../LoadingComponent';
+import { Button } from '../ui/button';
+import CartDetailsItem from './CartDetailsItem';
 
 const CartDetails = () => {
     const user = useAppStore(state => state.user);
+    const cart = useAppStore(state => state.cart);
+    const totalPrice = cart.cartItems.reduce((total, cartItem) => total + (cartItem.quantity * cartItem.product.price), 0)
+    const cartCount = cart.cartItems.reduce((total, cartItem) => total + cartItem.quantity, 0)
     const router = useRouter();
-    const { data: cartItems, isLoading, error } = useQuery({
-        queryKey: ['cart'],
-        queryFn: async () => {
-            const { data: cartId } = await supabase.rpc('get_or_create_active_cart');
-            const cartItems: CartItem[] = await fetchFromSupabase('cart_items', {
-                select: 'quantity,product:products(*)',
-                filters: {
-                    'cart_id': `eq.${cartId}`
-                },
-                userToken: user?.userInfo?.token
-            })
-            return cartItems
-        },
-        refetchOnWindowFocus: true,
-        refetchInterval: 10000
-    })
+
     useEffect(() => {
         if (!user.isLoading && !user.userInfo) router.push('/auth/login')
-    }, [])
+    }, [user])
 
-    if (user.isLoading || isLoading) return <LoadingComponent />
-
-    if (error) return <div>{error.message}</div>
     return (
-        <div className='container grid grid-cols-[1fr_300px] gap-3'>
-            <div>
-                <div>سبد خرید شما</div>
-                <div className='flex flex-col gap-2'>
-                    {
-                        cartItems?.map(({ product, quantity }) => (
-                            <div className='flex flex-col gap-2 border-b border-gray-600 pb-2 last:border-0' key={product.id}>
-                                <div className='flex gap-2'>
-                                    <Image className='rounded-sm' src={product.image_url} alt={product.name} width={90} height={90} />
-                                    <div className='text-sm line-clamp-2 h-10'>{product.name}</div>
+        <div className='container mt-8 mb-20 min-h-[300px] relative md:my-14'>
+            {
+                (user.isLoading || cart.loading)
+                    ? <LoadingComponent className='absolute' />
+                    : (cartCount > 0)
+                        ? <div className='grid grid-cols-1 md:grid-cols-[1fr_300px] gap-3 max-w-[1200px] mx-auto'>
+                            <section>
+                                <div className='font-semibold md:text-lg'>سبد خرید شما</div>
+                                <div className='flex flex-col gap-2'>
+                                    {
+                                        cart.cartItems?.map((cartItem) => (
+                                            <CartDetailsItem key={cartItem.product.id} cartItem={cartItem} />
+                                        ))
+                                    }
                                 </div>
-                                <div className='flex items-center gap-3'>
-                                    <CartButton product={product} />
-                                    <Price value={product.price * quantity} />
+                            </section>
+
+                            <aside className='border-t border-gray-600'>
+                                <div className='sticky top-20'>
+                                    <div className='rounded-lg px-5 py-5 flex flex-col gap-3 md:border md:border-gray-600 md:py-3'>
+                                        <div className='text-sm flex justify-between'>
+                                            <span>{`قیمت کالاها (${cartCount})`}</span>
+                                            <Price value={totalPrice} />
+                                        </div>
+                                        <Button className='hidden md:inline-flex bg-digikala py-5 hover:bg-digikala'>تایید و ثبت سفارش</Button>
+                                    </div>
                                 </div>
-                            </div>
-                        ))
-                    }
+                            </aside>
+                        </div>
+                        : <div className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center'>
+                            <Image src='/images/empty-cart.svg' alt='empty cart' width={200} height={150} />
+                            <div className='text-xl font-semibold'>سبد خرید شما خالی است !</div>
+                        </div>
+            }
+            <div className='fixed bottom-0 left-0 w-full flex flex-row justify-between bg-slate-900 p-3 border-t border-slate-700 gap-3 md:hidden'>
+                <Button className=' bg-digikala py-5 hover:bg-digikala'>تایید و ثبت سفارش</Button>
+                <div className='text-sm flex flex-col items-center gap-2'>
+                    <span className='text-xs text-gray-400'>جمع سبد خرید</span>
+                    <Price value={totalPrice} />
                 </div>
             </div>
-
-            <aside></aside>
         </div>
     )
 }
