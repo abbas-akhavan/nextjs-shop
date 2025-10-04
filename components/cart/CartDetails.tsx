@@ -22,7 +22,7 @@ const CartDetails = () => {
     return (
         <div className='container mt-8 mb-20 min-h-[300px] relative md:my-14'>
             {
-                (user.isLoading || cart.loading)
+                (user.isLoading)
                     ? <LoadingComponent className='absolute' />
                     : (cartCount > 0)
                         ? <div className='grid grid-cols-1 md:grid-cols-[1fr_300px] gap-3 max-w-[1200px] mx-auto'>
