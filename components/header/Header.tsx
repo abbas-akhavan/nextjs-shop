@@ -8,7 +8,7 @@ import Search from './Search';
 const Header = () => {
 
     return (
-        <header className='bg-gray-800 p-3 shadow-lg border-b border-gray-600 sticky top-0 z-20'>
+        <header className='bg-gray-800 p-3 shadow-lg border-b border-gray-600 sticky top-0 z-30'>
             <div className='container mx-auto'>
                 <section className='flex items-center gap-5'>
                     <Logo />
