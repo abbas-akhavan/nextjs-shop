@@ -1,4 +1,4 @@
-import { fetchFromSupabase } from '@/lib/helpers/supabase-ssr';
+import { fetchFromSupabase } from '@/utils/supabase-ssr';
 import { AppState, CartItem } from '@/types/AppStateTypes';
 import { supabase } from '@/utils/supabaseClient';
 import toast from 'react-hot-toast';
@@ -124,7 +124,9 @@ const useAppStore = create<AppState>((set) => ({
             cartItems: [],
             loading: false
         }
-    })
+    }),
+    overlay: false,
+    setOverlay: (value) => set({ overlay: value })
 }));
 
 export default useAppStore;

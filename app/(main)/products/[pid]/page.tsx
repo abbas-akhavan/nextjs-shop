@@ -1,6 +1,6 @@
 import ProductGallary from '@/components/product/ProductGallary';
 import ProductSummaryInfo from '@/components/product/ProductSummaryInfo';
-import { fetchFromSupabase } from '@/lib/helpers/supabase-ssr'
+import { fetchFromSupabase } from '@/utils/supabase-ssr'
 import { Product } from '@/types/Product';
 import { notFound } from 'next/navigation';
 import React from 'react'

@@ -32,4 +32,6 @@ export interface AppState {
     user: User;
     login: (user: Omit<UserInfo, "isLoggedIn">) => void;
     logout: () => void;
+    overlay: boolean;
+    setOverlay: (value: boolean) => void
 }

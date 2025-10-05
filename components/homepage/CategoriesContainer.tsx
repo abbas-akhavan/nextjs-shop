@@ -1,5 +1,5 @@
-import { fetchFromSupabase } from '@/lib/helpers/supabase-ssr';
-import { chunk } from '@/lib/helpers/useful-functions';
+import { fetchFromSupabase } from '@/utils/supabase-ssr';
+import { chunk } from '@/utils/useful-functions';
 import { Category } from '@/types/Category';
 import Image from 'next/image';
 import Link from 'next/link';
