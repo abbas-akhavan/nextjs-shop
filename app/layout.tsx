@@ -4,6 +4,7 @@ import "./input.css";
 import { Toaster } from "react-hot-toast";
 import { ReduxProvider } from "@/providers/ReduxProvider";
 import Providers from "@/providers/Providers";
+import { GlobalOverlay } from "@/components/shared/GlobalOverlay";
 
 const iranYekan = localFont({
   src: [
@@ -56,6 +57,7 @@ export default function RootLayout({
         <Providers>
           {children}
         </Providers>
+        <GlobalOverlay />
         <Toaster toastOptions={{
           className: "!bg-gray-100 !text-black"
         }} />
