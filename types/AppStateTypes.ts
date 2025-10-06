@@ -5,7 +5,7 @@ export interface CartItem {
     quantity: number;
 }
 
-interface Cart {
+export interface Cart {
     loading: boolean;
     cartItems: CartItem[];
 }
@@ -22,16 +22,24 @@ export interface User {
     userInfo: UserInfo | null;
 }
 
+export interface searchHistory {
+    title: string;
+    url: string;
+}
+
 export interface AppState {
     //cart
     cart: Cart;
     addToCart: (item: Product) => void;
-    removeFromCart: (id: string) => void;
+    removeFromCart: (id: number) => void;
     clearCart: () => void;
     //user
     user: User;
     login: (user: Omit<UserInfo, "isLoggedIn">) => void;
     logout: () => void;
     overlay: boolean;
-    setOverlay: (value: boolean) => void
+    setOverlay: (value: boolean) => void;
+    searchHistory: searchHistory[];
+    addSearchHistory: (item: searchHistory) => void,
+    clearSearchHistory: () => void
 }
