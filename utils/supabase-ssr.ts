@@ -13,19 +13,26 @@ export async function fetchFromSupabase(table: string, params?: SupabaseQuery) {
         select: params?.select || '*',
         ...params?.filters
     });
-    const response = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${queryParams}`, {
-        headers: {
-            apikey: `${SUPABASE_ANON_KEY}`,
-            Authorization: `Bearer ${params?.userToken || SUPABASE_ANON_KEY}`,
-            'Content-Type': 'application/json'
-        },
-        next: params?.next,
-        cache: params?.cache
-    });
 
-    if (!response.ok) {
-        console.log(response);
+    let response;
+
+    try {
+        response = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${queryParams}`, {
+            headers: {
+                apikey: `${SUPABASE_ANON_KEY}`,
+                Authorization: `Bearer ${params?.userToken || SUPABASE_ANON_KEY}`,
+                'Content-Type': 'application/json'
+            },
+            next: params?.next,
+            cache: params?.cache
+        });
+    } catch (error) {
+        console.log(error)
     }
 
-    return await response.json();
+    // if (!response.ok) {
+    //     console.log(response);
+    // }
+
+    return await response?.json();
 }
