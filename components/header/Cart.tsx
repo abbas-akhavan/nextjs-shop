@@ -22,7 +22,7 @@ const Cart = () => {
     return (
         <HoverCard openDelay={50} closeDelay={100}>
             <HoverCardTrigger asChild>
-                <Button className='size-9 relative border border-slate-600 bg-transparent hover:bg-gray-900' asChild>
+                <Button className='hidden md:inline-flex size-9 relative border border-slate-600 bg-transparent hover:bg-gray-900' asChild>
                     <Link href='/cart'>
                         <ShoppingCartIcon className='!size-6' />
                         {
