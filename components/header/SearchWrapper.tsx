@@ -1,16 +1,13 @@
 'use client'
 import useDebounce from '@/hooks/useDebounce';
 import useAppStore from '@/store/useAppStore';
-import { debounce } from '@/utils/debounce';
 import { fetchFromSupabase } from '@/utils/supabase-ssr';
-import { ArrowUpRightIcon, ChevronLeftIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid';
+import { ArrowUpRightIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useRef, useState } from 'react'
 import Spiner from '../Spiner';
 import { Product } from '@/types/Product';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { ClockIcon, TrashIcon } from '@heroicons/react/24/outline';
 import SearchHistory from './SearchHistory';
 
 type SearchWrapperProp = {
