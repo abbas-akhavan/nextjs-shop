@@ -1,10 +1,9 @@
-import { cache } from "react";
-
 interface SupabaseQuery {
     select?: string;
     filters?: Record<string, string>;
     next?: NextFetchRequestConfig;
     userToken?: string;
+    cache?: 'no-cache' | 'no-store' | 'force-cache';
 }
 export async function fetchFromSupabase(table: string, params?: SupabaseQuery) {
     const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -21,7 +20,7 @@ export async function fetchFromSupabase(table: string, params?: SupabaseQuery) {
             'Content-Type': 'application/json'
         },
         next: params?.next,
-        cache: "no-store"
+        cache: params?.cache
     });
 
     if (!response.ok) {
