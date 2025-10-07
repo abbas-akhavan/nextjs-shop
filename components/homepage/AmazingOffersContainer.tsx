@@ -18,7 +18,7 @@ const AmazingOffersContainer = async () => {
                 <div className='flex md:hidden gap-2 pb-3 px-4'>
                     <Image src='/Amazing.svg' alt='پیشنهاد شگفت انگیز' width={27} height={27} />
                     <Image src='/MobileAmazing.svg' alt='پیشنهاد شگفت انگیز' width={108} height={20} />
-                    <Timer endTime='2025-09-28T23:59:59' />
+                    <Timer endTime='2025-10-09T23:59:59' />
                     <Link href='/incredible-offers' className='flex mr-auto text-xs items-center'>همه <ChevronLeftIcon className='size-3' /></Link>
                 </div>
                 <AmazingSlider items={amazingOffers} />
