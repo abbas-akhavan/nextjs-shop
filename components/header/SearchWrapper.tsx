@@ -51,9 +51,7 @@ const SearchWrapper = ({ setShowSearchWrapper }: SearchWrapperProp) => {
     useEffect(() => {
         function handleClickOutSide(event: MouseEvent) {
             if (searchWrapperRef.current && !searchWrapperRef.current.contains(event.target as Node)) {
-                setShowSearchWrapper(false);
-                setOverlay(false);
-                window.history.replaceState(null, "", window.location.pathname + window.location.search);
+                hideSearchWrapper()
             }
         }
         document.addEventListener('mousedown', handleClickOutSide);
