@@ -1,5 +1,6 @@
 'use client'
 import { TimerObject } from '@/types/TimerObject';
+import { toPersianNumber } from '@/utils/useful-functions';
 import React, { useEffect, useState } from 'react'
 
 const Timer = ({ endTime }: { endTime: string }) => {
@@ -32,7 +33,7 @@ const Timer = ({ endTime }: { endTime: string }) => {
                 Object.values(timeLeft).map((value, index, arr) => (
                     <div className='flex gap-1' key={index}>
                         <span className='bg-white text-gray-800 rounded-sm size-6 text-sm flex items-center justify-center'>
-                            {String(value).padStart(2, "0")}
+                            {toPersianNumber(Number(String(value).padStart(2, "0")))}
                         </span>
                         {
                             !(index === (arr.length - 1)) && <span>:</span>
