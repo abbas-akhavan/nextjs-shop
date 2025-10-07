@@ -1,3 +1,5 @@
+import { cache } from "react";
+
 interface SupabaseQuery {
     select?: string;
     filters?: Record<string, string>;
@@ -18,7 +20,8 @@ export async function fetchFromSupabase(table: string, params?: SupabaseQuery) {
             Authorization: `Bearer ${params?.userToken || SUPABASE_ANON_KEY}`,
             'Content-Type': 'application/json'
         },
-        next: params?.next
+        next: params?.next,
+        cache: "no-store"
     });
 
     if (!response.ok) {

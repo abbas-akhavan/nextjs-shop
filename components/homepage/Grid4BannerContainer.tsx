@@ -10,9 +10,6 @@ const Grid4BannerContainer = async () => {
         filters: {
             'banner_type': 'eq.square'
         },
-        next: {
-            revalidate: 0
-        }
     })
     return (
         <div className='grid grid-cols-2 md:grid-cols-4 gap-5 mt-5'>
