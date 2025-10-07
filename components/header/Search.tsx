@@ -12,6 +12,7 @@ const Search = () => {
         window.history.replaceState(null, "", "#search");
         setShowSearchWrapper(true);
         setOverlay(true)
+        document.body.classList.add("overflow-hidden")
     }
 
     useEffect(() => {

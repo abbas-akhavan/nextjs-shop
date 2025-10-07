@@ -33,6 +33,7 @@ const SearchWrapper = ({ setShowSearchWrapper }: SearchWrapperProp) => {
         router.push(`/products/${product.id}`);
     }
     function hideSearchWrapper() {
+        document.body.classList.remove("overflow-hidden")
         setShowSearchWrapper(false);
         setOverlay(false);
         window.history.replaceState(null, "", window.location.pathname + window.location.search);
