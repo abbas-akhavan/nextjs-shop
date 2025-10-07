@@ -2,13 +2,14 @@
 import useDebounce from '@/hooks/useDebounce';
 import useAppStore from '@/store/useAppStore';
 import { fetchFromSupabase } from '@/utils/supabase-ssr';
-import { ArrowUpRightIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid';
+import { ArrowRightIcon, ArrowUpRightIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useRef, useState } from 'react'
 import Spiner from '../Spiner';
 import { Product } from '@/types/Product';
 import { useRouter } from 'next/navigation';
 import SearchHistory from './SearchHistory';
+import { Button } from '../ui/button';
 
 type SearchWrapperProp = {
     setShowSearchWrapper: React.Dispatch<React.SetStateAction<boolean>>
@@ -64,8 +65,11 @@ const SearchWrapper = ({ setShowSearchWrapper }: SearchWrapperProp) => {
     }, []);
 
     return (
-        <div ref={searchWrapperRef} className='absolute w-full rounded-sm bg-gray-700 shadow-md top-0 right-0 p-3 pt-0'>
-            <input autoComplete='off' ref={searchInputRef} onChange={handleChangeSearchInput} className='w-full pt-3 pb-2 px-2 mb-3 rounded-sm border-b border-gray-400 bg-inherit focus:outline-none' type="text" name="search" id="search" />
+        <div ref={searchWrapperRef} className='fixed top-0 right-0 w-screen h-screen text-sm p-3 rounded-sm bg-gray-700 shadow-md md:h-auto md:text-base md:w-full md:absolute md:pt-0'>
+            <div className='w-full relative'>
+                <Button onClick={hideSearchWrapper} className='bg-inherit absolute px-3 md:hidden'><ArrowRightIcon className='!w-5 !h-5' /></Button>
+                <input autoComplete='off' ref={searchInputRef} onChange={handleChangeSearchInput} className='w-full py-2 px-3 pr-10 rounded-sm border-gray-400 bg-gray-800 md:mb-3 md:px-2 md:pt-3 md:bg-inherit md:border-b focus:outline-none' type="text" name="search" id="search" />
+            </div>
             <div >
                 {
                     (!debouncedSerchTerm && searchHistory.length > 0)
@@ -75,9 +79,9 @@ const SearchWrapper = ({ setShowSearchWrapper }: SearchWrapperProp) => {
                             : <ul>
                                 {
                                     searchResults?.map(product => (
-                                        <li onClick={() => handleClickWrapperItems(product)} key={product.id} className='flex gap-2 items-center py-1 cursor-pointer'>
+                                        <li onClick={() => handleClickWrapperItems(product)} key={product.id} className='flex gap-2 items-center py-2 cursor-pointer md:py-1'>
                                             <MagnifyingGlassIcon className='w-5 h-5 shrink-0' />
-                                            <span className=' line-clamp-1 h-7'>{product.name}</span>
+                                            <span className=' line-clamp-1 h-5 md:h-7'>{product.name}</span>
                                             <ArrowUpRightIcon className='w-5 h-5 mr-auto shrink-0' />
                                         </li>))
                                 }
