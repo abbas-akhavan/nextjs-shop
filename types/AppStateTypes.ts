@@ -30,7 +30,7 @@ export interface searchHistory {
 export interface AppState {
     //cart
     cart: Cart;
-    addToCart: (item: Product) => void;
+    addToCart: (item: Product) => Promise<boolean>;
     removeFromCart: (id: number) => void;
     clearCart: () => void;
     //user

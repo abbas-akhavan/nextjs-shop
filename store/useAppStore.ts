@@ -25,6 +25,7 @@ const useAppStore = create<AppState>()(persist(
             });
             if (error) {
                 toast.error(error.message)
+                return false
             }
 
             set((state) => {
@@ -46,6 +47,7 @@ const useAppStore = create<AppState>()(persist(
                     }
                 }
             })
+            return true
         },
         removeFromCart: async (id) => {
             set(state => ({
