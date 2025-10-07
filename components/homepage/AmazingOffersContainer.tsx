@@ -10,7 +10,10 @@ import { fetchFromSupabase } from '@/utils/supabase-ssr';
 
 const AmazingOffersContainer = async () => {
     const amazingOffers: AmazingOffer[] = await fetchFromSupabase('amazing_offers', {
-        'select': '*,products(*)'
+        select: '*,products(*)',
+        next: {
+            revalidate: 0
+        }
     });
     return (
         <div className='mt-5'>

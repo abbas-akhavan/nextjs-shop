@@ -9,6 +9,9 @@ const Grid4BannerContainer = async () => {
         select: '*',
         filters: {
             'banner_type': 'eq.square'
+        },
+        next: {
+            revalidate: 0
         }
     })
     return (

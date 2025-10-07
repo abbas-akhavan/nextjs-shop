@@ -9,6 +9,9 @@ const Grid2BannerContainer = async () => {
         select: '*',
         filters: {
             'banner_type': 'eq.rectangle'
+        },
+        next: {
+            revalidate: 0
         }
     });
     return (

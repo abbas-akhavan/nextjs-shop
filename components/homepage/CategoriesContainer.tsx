@@ -7,7 +7,10 @@ import React from 'react'
 
 const CategoriesContainer = async () => {
     const data: Category[] = await fetchFromSupabase('categories', {
-        select: '*'
+        select: '*',
+        next: {
+            revalidate: 0
+        }
     });
     const chunkedData: Category[][] = chunk<Category>(data, 2);
     return (
