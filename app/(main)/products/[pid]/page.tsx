@@ -10,7 +10,8 @@ const SingleProduct = async ({ params }: { params: Promise<{ pid: string }> }) =
     const data: Product[] = await fetchFromSupabase('products', {
         filters: {
             'id': `eq.${pid}`
-        }
+        },
+        cache: 'no-store'
     })
     const product = data?.[0];
     if (!product) notFound();
