@@ -6,6 +6,7 @@ import { SliderItem } from '@/types/SliderItem';
 const SliderContainer = async () => {
     const sliders: SliderItem[] = await fetchFromSupabase('sliders', {
         select: '*',
+        cache: 'no-store'
     });
     // const data = await new Promise(resolve => setTimeout(() => resolve(res.json()), 180000));
     return (
