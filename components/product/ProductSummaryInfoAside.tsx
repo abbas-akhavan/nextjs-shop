@@ -30,7 +30,7 @@ const ProductSummaryInfoAside = ({ product }: Props) => {
                 <span>دیجی کالا</span>
             </div>
             <hr className='hidden lg:block border-slate-500' />
-            <div className='fixed bottom-0 left-0 w-full flex flex-row-reverse justify-between bg-slate-900 p-3 border-t border-slate-700 gap-3 lg:flex-col lg:static lg:bg-inherit lg:p-0'>
+            <div className='fixed bottom-0 left-0 w-full flex flex-row-reverse justify-between bg-slate-700 py-4 px-3 md:p-3 border-t border-slate-500 gap-3 lg:flex-col lg:static lg:bg-inherit lg:p-0'>
                 <div className='flex justify-end'>
                     <Price value={product.price} />
                 </div>
@@ -38,7 +38,7 @@ const ProductSummaryInfoAside = ({ product }: Props) => {
                     {
                         productInCart && productInCart?.quantity > 0
                             ? <CartButton product={product} />
-                            : <Button disabled={cart.loading} onClick={handleAddToCart} className='bg-digikala hover:bg-digikala lg:w-full'>
+                            : <Button disabled={cart.loading} onClick={handleAddToCart} className='bg-digikala hover:bg-digikala lg:w-full py-6'>
                                 {
                                     cart.loading
                                         ? <Spiner />
