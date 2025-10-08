@@ -1,7 +1,7 @@
 'use client'
 import useDebounce from '@/hooks/useDebounce';
 import useAppStore from '@/store/useAppStore';
-import { fetchFromSupabase } from '@/utils/supabase-ssr';
+import { fetchFromSupabase } from '@/utils/helpers';
 import { ArrowRightIcon, ArrowUpRightIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useRef, useState } from 'react'

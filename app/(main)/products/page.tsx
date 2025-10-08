@@ -1,4 +1,4 @@
-import { fetchFromSupabase } from '@/utils/supabase-ssr'
+import { fetchFromSupabase } from '@/utils/helpers'
 import { Product } from '@/types/Product'
 import React from 'react'
 

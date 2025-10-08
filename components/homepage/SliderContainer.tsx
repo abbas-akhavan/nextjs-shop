@@ -1,6 +1,6 @@
 import React from 'react'
 import Slider from './Slider';
-import { fetchFromSupabase } from '@/utils/supabase-ssr';
+import { fetchFromSupabase } from '@/utils/helpers';
 import { SliderItem } from '@/types/SliderItem';
 
 const SliderContainer = async () => {

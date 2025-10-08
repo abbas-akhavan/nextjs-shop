@@ -6,7 +6,7 @@ import Timer from '../shared/Timer';
 import Link from 'next/link';
 import { ChevronLeftIcon } from '@heroicons/react/24/solid';
 import { supabase } from '@/utils/supabaseClient';
-import { fetchFromSupabase } from '@/utils/supabase-ssr';
+import { fetchFromSupabase } from '@/utils/helpers';
 
 const AmazingOffersContainer = async () => {
     const amazingOffers: AmazingOffer[] = await fetchFromSupabase('amazing_offers', {

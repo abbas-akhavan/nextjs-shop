@@ -1,4 +1,4 @@
-import { fetchFromSupabase } from '@/utils/supabase-ssr';
+import { fetchFromSupabase } from '@/utils/helpers';
 import { chunk } from '@/utils/useful-functions';
 import { Category } from '@/types/Category';
 import Image from 'next/image';

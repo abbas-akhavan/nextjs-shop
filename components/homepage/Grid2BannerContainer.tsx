@@ -1,4 +1,4 @@
-import { fetchFromSupabase } from '@/utils/supabase-ssr';
+import { fetchFromSupabase } from '@/utils/helpers';
 import { PartnerShip } from '@/types/PartnerShip';
 import Image from 'next/image';
 import Link from 'next/link';

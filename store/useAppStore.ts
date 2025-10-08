@@ -1,4 +1,4 @@
-import { fetchFromSupabase } from '@/utils/supabase-ssr';
+import { fetchFromSupabase } from '@/utils/helpers';
 import { AppState, CartItem } from '@/types/AppStateTypes';
 import { supabase } from '@/utils/supabaseClient';
 import toast from 'react-hot-toast';
