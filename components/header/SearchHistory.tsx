@@ -27,7 +27,7 @@ const SearchHistory = ({ searchHistory, hideSearchWrapper }: { searchHistory: se
             <div className='flex gap-2 mt-4 flex-wrap'>
                 {
                     searchHistory.map(item => (
-                        <span key={item.title} onClick={() => handleSearchHistoryItems(item.url)} className='text-xs flex gap-2 items-center border border-gray-500 rounded-full py-2 px-3 md:text-sm cursor-pointer'>
+                        <span key={item.title} onClick={() => handleSearchHistoryItems(item.url)} className='text-xs flex gap-2 items-center border border-slate-500 rounded-full py-2 px-3 md:text-sm cursor-pointer'>
                             {
                                 item.title.length < 20
                                     ? item.title

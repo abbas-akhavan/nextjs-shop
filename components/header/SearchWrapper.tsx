@@ -69,16 +69,16 @@ const SearchWrapper = ({ setShowSearchWrapper }: SearchWrapperProp) => {
     }, []);
 
     return (
-        <div ref={searchWrapperRef} className='fixed top-0 right-0 w-screen h-screen text-sm p-3 rounded-sm bg-gray-700 shadow-md md:h-auto md:text-base md:w-full md:absolute md:pt-0'>
+        <div ref={searchWrapperRef} className='fixed top-0 right-0 w-screen h-screen text-sm p-3 rounded-sm bg-slate-700 shadow-md md:h-auto md:text-base md:w-full md:absolute md:pt-0'>
             <div className='w-full relative mb-4 md:mb-3'>
-                <Button onClick={hideSearchWrapper} className='top-1/2 right-0 -translate-y-1/2 bg-inherit absolute px-3 md:hidden'>
+                <Button onClick={hideSearchWrapper} className='top-1/2 right-0 -translate-y-1/2 bg-inherit absolute px-3 md:hidden shadow-none'>
                     <ArrowRightIcon className='!w-6 !h-6' />
                 </Button>
                 <input
                     autoComplete='off'
                     ref={searchInputRef}
                     onChange={handleChangeSearchInput}
-                    className='w-full py-3 px-3 pr-10 rounded-sm border-gray-400 bg-gray-600 md:px-2 md:pt-3 md:bg-inherit md:border-b focus:outline-none' type="text" name="search" id="search" />
+                    className='w-full py-3 px-3 pr-10 rounded-sm border-slate-400 bg-slate-600 md:px-2 md:pt-3 md:bg-inherit md:border-b focus:outline-none' type="text" name="search" id="search" />
             </div>
             <div >
                 {
