@@ -25,14 +25,14 @@ const ProductSummaryInfoAside = ({ product }: Props) => {
         if (result) toast.success('کالا به سبد اضافه شد')
     }
     return (
-        <div className='bg-slate-700 h-fit p-2 rounded-md sticky top-20 border border-slate-500 flex flex-col gap-3'>
+        <div className='bg-slate-800 h-fit p-2 rounded-md sticky top-20 border border-slate-600 flex flex-col gap-3'>
             <div className='font-semibold'>فروشنده</div>
             <div className='flex gap-2'>
                 <BuildingStorefrontIcon className='w-6 h-6' />
                 <span>دیجی کالا</span>
             </div>
-            <hr className='hidden lg:block border-slate-500' />
-            <div className='fixed bottom-0 left-0 w-full flex flex-row-reverse justify-between bg-slate-700 py-4 px-3 md:p-3 border-t border-slate-500 gap-3 lg:border-none lg:flex-col lg:static lg:bg-inherit lg:p-0'>
+            <hr className='hidden lg:block border-slate-600' />
+            <div className='fixed bottom-0 left-0 w-full flex flex-row-reverse justify-between bg-slate-900 py-4 px-3 md:p-3 border-t border-slate-700 gap-3 lg:border-none lg:flex-col lg:static lg:bg-inherit lg:p-0'>
                 <div className='flex justify-end'>
                     <Price value={product.price} />
                 </div>

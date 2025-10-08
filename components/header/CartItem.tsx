@@ -8,7 +8,7 @@ import Link from 'next/link';
 const CartItemComponent = ({ cartItem }: { cartItem: CartItem }) => {
     const { product, quantity } = cartItem;
     return (
-        <div className='flex flex-col gap-2 border-b border-gray-600 pb-2 last:border-0' key={product.id}>
+        <div className='flex flex-col gap-2 border-b border-slate-500 pb-2 last:border-0' key={product.id}>
             <div className='flex gap-2'>
                 <Link href={`/products/${product.id}`} className='shrink-0'>
 

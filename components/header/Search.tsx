@@ -23,7 +23,7 @@ const Search = () => {
 
     return (
         <div className='relative w-full md:w-[600px]'>
-            <div onClick={() => showSearchWrapperFn()} className='w-full rounded-sm bg-gray-700 text-gray-400 text-sm pr-10 py-3 cursor-pointer relative'>
+            <div onClick={() => showSearchWrapperFn()} className='w-full rounded-sm bg-slate-700 text-gray-400 text-sm pr-10 py-3 cursor-pointer relative'>
                 <MagnifyingGlassIcon className='size-5 absolute top-1/2 -translate-y-1/2 right-3' />
                 جستجو
             </div>

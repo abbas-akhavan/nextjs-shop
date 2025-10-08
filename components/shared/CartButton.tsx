@@ -18,7 +18,7 @@ const CartButton = ({ product }: { product: Product }) => {
         removeFromCart(product.id);
     }
     return (
-        <div className='border border-slate-500 flex gap-3 p-2 rounded-sm items-center w-fit text-sm h-9'>
+        <div className='border border-slate-600 flex gap-3 p-2 rounded-sm items-center w-fit text-sm h-9'>
             <PlusIcon className='w-4 h-4 cursor-pointer' onClick={handleAddToCart} />
             {
                 cart.loading

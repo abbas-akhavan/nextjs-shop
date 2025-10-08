@@ -146,7 +146,7 @@ const Footer = () => {
             <div className='container py-7'>
                 <div className='flex justify-between'>
                     <Logo />
-                    <Button className='border border-slate-600 bg-transparent hover:bg-slate-900'>
+                    <Button className='border border-slate-700 bg-transparent hover:bg-slate-950'>
                         بازگشت به بالا
                         <ChevronUpIcon className='!size-4' />
                     </Button>
@@ -192,8 +192,8 @@ const Footer = () => {
                             }
                         </div><div className='flex flex-col gap-5'>با ثبت ایمیل، از جدید‌ترین تخفیف‌ها با‌خبر شوید</div>
                         <div className='flex gap-2'>
-                            <input placeholder='ایمیل شما' type="email" name="email" id="email" className='w-full bg-slate-700 py-2 px-3 rounded-sm focus:outline-none' />
-                            <Button className='bg-slate-600 h-10 hover:bg-slate-700'>ثبت</Button>
+                            <input placeholder='ایمیل شما' type="email" name="email" id="email" className='w-full bg-slate-800 py-2 px-3 rounded-sm focus:outline-none' />
+                            <Button className='bg-slate-700 h-10 hover:bg-slate-800'>ثبت</Button>
                         </div>
                     </div>
                 </div>
