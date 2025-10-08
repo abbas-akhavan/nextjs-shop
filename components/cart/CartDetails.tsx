@@ -37,9 +37,9 @@ const CartDetails = () => {
                                 </div>
                             </section>
 
-                            <aside className='border-t border-gray-600'>
+                            <aside className='border-t border-slate-700 md:border-none'>
                                 <div className='sticky top-20'>
-                                    <div className='rounded-lg px-5 py-5 flex flex-col gap-3 md:border md:border-gray-600 md:py-3'>
+                                    <div className='rounded-lg px-5 py-5 flex flex-col gap-3 md:border md:border-slate-700 md:py-3'>
                                         <div className='text-sm flex justify-between'>
                                             <span>{`قیمت کالاها (${cartCount})`}</span>
                                             <Price value={totalPrice} />

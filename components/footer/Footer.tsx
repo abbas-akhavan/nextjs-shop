@@ -142,7 +142,7 @@ const Footer = () => {
         },
     ]
     return (
-        <footer className='mt-10 border-t border-t-slate-600 hidden md:block'>
+        <footer className='mt-10 border-t border-t-slate-700 hidden md:block'>
             <div className='container py-7'>
                 <div className='flex justify-between'>
                     <Logo />
