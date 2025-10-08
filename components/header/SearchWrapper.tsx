@@ -1,7 +1,7 @@
 'use client'
 import useDebounce from '@/hooks/useDebounce';
 import useAppStore from '@/store/useAppStore';
-import { fetchFromSupabase } from '@/utils/helpers';
+import { fetchFromSupabase, fetchFromSupabaseWithAxios } from '@/utils/helpers';
 import { ArrowRightIcon, ArrowUpRightIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useRef, useState } from 'react'
@@ -41,13 +41,15 @@ const SearchWrapper = ({ setShowSearchWrapper }: SearchWrapperProp) => {
 
     const { data: searchResults, error, isLoading } = useQuery<Product[]>({
         queryKey: ['searchTerm', debouncedSerchTerm],
-        queryFn: () => fetchFromSupabase('products', {
+        queryFn: () => fetchFromSupabaseWithAxios('productss', {
             select: '*',
             filters: {
                 'name': `ilike.*${debouncedSerchTerm}*`
             }
         }),
-        enabled: !!debouncedSerchTerm
+        enabled: !!debouncedSerchTerm,
+        retry: 2,
+        retryDelay: 5000
     })
 
     useEffect(() => {
