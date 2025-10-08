@@ -41,7 +41,7 @@ const SearchWrapper = ({ setShowSearchWrapper }: SearchWrapperProp) => {
 
     const { data: searchResults, error, isLoading } = useQuery<Product[]>({
         queryKey: ['searchTerm', debouncedSerchTerm],
-        queryFn: () => fetchFromSupabaseWithAxios('productss', {
+        queryFn: () => fetchFromSupabaseWithAxios('products', {
             select: '*',
             filters: {
                 'name': `ilike.*${debouncedSerchTerm}*`
@@ -49,7 +49,8 @@ const SearchWrapper = ({ setShowSearchWrapper }: SearchWrapperProp) => {
         }),
         enabled: !!debouncedSerchTerm,
         retry: 2,
-        retryDelay: 5000
+        retryDelay: 5000,
+        staleTime: 1000 * 60 * 3,
     })
 
     useEffect(() => {
