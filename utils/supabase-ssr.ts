@@ -14,10 +14,8 @@ export async function fetchFromSupabase(table: string, params?: SupabaseQuery) {
         ...params?.filters
     });
 
-    let response;
-
     try {
-        response = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${queryParams}`, {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${queryParams}`, {
             headers: {
                 apikey: `${SUPABASE_ANON_KEY}`,
                 Authorization: `Bearer ${params?.userToken || SUPABASE_ANON_KEY}`,
@@ -26,13 +24,17 @@ export async function fetchFromSupabase(table: string, params?: SupabaseQuery) {
             next: params?.next,
             cache: params?.cache
         });
+        if (!response.ok) {
+            const responseText = await response.text();
+            throw new Error(`Supabase fetch failed : ${response.status} ${responseText}`)
+        }
+        return await response?.json();
     } catch (error) {
-        console.log(error)
+        if (error instanceof TypeError) {
+            console.error('Network error: maybe Supabase is down or unreachable');
+        } else {
+            console.error('Supabase fetch error :', error)
+        }
+        throw error
     }
-
-    // if (!response.ok) {
-    //     console.log(response);
-    // }
-
-    return await response?.json();
 }
