@@ -29,7 +29,7 @@ export default async function Home() {
       <Suspense fallback={<MainSliderSkeleton />}>
         <SliderContainer />
       </Suspense>
-      <div className="container pb-96 md:pb-0">
+      <div className="container">
         <Suspense fallback={<ServicesSkeleton />}>
           <ServicesContainer />
         </Suspense>

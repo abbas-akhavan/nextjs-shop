@@ -1,9 +1,10 @@
 import React from 'react'
 import Logo from '../header/Logo'
 import { Button } from '../ui/button'
-import { ChevronUpIcon } from '@heroicons/react/24/solid'
+import { ChevronUpIcon, PhoneIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion'
 
 const Footer = () => {
     const advantages = [
@@ -142,21 +143,34 @@ const Footer = () => {
         },
     ]
     return (
-        <footer className='mt-10 border-t border-t-slate-700 hidden md:block'>
-            <div className='container py-7'>
-                <div className='flex justify-between'>
+        <footer className='mt-10 border-t border-t-slate-700'>
+            <div className='container py-4 md:py-7'>
+                <div className='flex justify-center md:justify-between'>
                     <Logo />
-                    <Button className='border border-slate-700 bg-transparent hover:bg-slate-950'>
+                    <Button className='border border-slate-700 bg-transparent hover:bg-slate-950 text-xs rounded-full md:rounded-sm'>
                         بازگشت به بالا
                         <ChevronUpIcon className='!size-4' />
                     </Button>
                 </div>
-                <div className='flex gap-3 text-xs mt-4'>
+                <div className='flex justify-between items-center text-xs mt-5 md:hidden'>
+                    <div className='flex gap-2 items-center'>
+                        <span className='bg-slate-700 rounded-full size-9 flex items-center justify-center'>
+                            <PhoneIcon className='w-4 h-4' />
+                        </span>
+                        <div className='flex flex-col gap-2'>
+                            <span>تماس با پشتیبانی</span>
+                            <span className='text-slate-500'>7 روز هفته ، 24 ساعت</span>
+                        </div>
+                    </div>
+
+                    <a className='bg-slate-700 rounded-full block py-2 px-4' href='tel:02161930000'>تماس</a>
+                </div>
+                <div className='hidden md:flex gap-3 text-xs mt-4'>
                     <span>تلفن پشتیبانی ۶۱۹۳۰۰۰۰ - ۰۲۱</span>|
                     <span>۰۲۱-۹۱۰۰۰۱۰۰</span>|
                     <span>۷ روز هفته، ۲۴ ساعته پاسخگوی شما هستیم</span>
                 </div>
-                <div className='flex justify-around mt-10'>
+                <div className='hidden md:flex justify-around mt-10'>
                     {
                         advantages.map((advantage, i) => (
                             <div key={advantage ? advantage.id : i} className='flex flex-col gap-2 items-center'>
@@ -166,7 +180,7 @@ const Footer = () => {
                         ))
                     }
                 </div>
-                <div className='flex justify-between mt-14'>
+                <div className='justify-between mt-14 hidden lg:flex'>
                     {
                         menuItems.map(category => (
                             <div className='flex flex-col gap-5 w-4/6' key={category.category}>
@@ -197,6 +211,22 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
+                <Accordion type='single' collapsible className='flex flex-col w-full'>
+                    {
+                        menuItems.map((category, index) => (
+                            <AccordionItem value={`item-${index}`} className=' border-b-slate-700 last:!border-b-0' key={category.category}>
+                                <AccordionTrigger className='font-semibold'>{category.category}</AccordionTrigger>
+                                <AccordionContent className='flex flex-col gap-3'>
+                                    {
+                                        category.items.map((categoryItem) => (
+                                            <Link key={categoryItem.title} className='text-slate-400 text-sm' href={categoryItem.url}>{categoryItem.title}</Link>
+                                        ))
+                                    }
+                                </AccordionContent>
+                            </AccordionItem>
+                        ))
+                    }
+                </Accordion>
             </div>
         </footer>
     )
