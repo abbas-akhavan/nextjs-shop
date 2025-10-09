@@ -18,7 +18,7 @@ const CategoriesContainer = async () => {
                 {
                     Array.from({ length: 2 }, (_, i) => (
                         chunkedData.map((group, i) => (
-                            <div key={i} className='w-20 md:w-auto flex flex-col gap-6 md:gap-6 shrink-0'>
+                            <div key={i} className='w-20 md:w-auto flex flex-col justify-between gap-6 md:gap-6 shrink-0'>
                                 {
                                     group.map((category, i) => (
                                         <Link href={`products/${category.id}`} key={i} className='flex flex-col gap-3 items-center'>
