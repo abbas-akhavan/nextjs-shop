@@ -10,6 +10,7 @@ import { toPersianNumber } from '@/utils/useful-functions'
 import Price from '../shared/Price'
 import CartItemComponent from './CartItem'
 import { usePathname } from 'next/navigation'
+import Badge from '../shared/Badge'
 
 const Cart = () => {
     const cart = useAppStore(state => state.cart)
@@ -27,9 +28,7 @@ const Cart = () => {
                         <ShoppingCartIcon className='!size-6' />
                         {
                             cart.cartItems.length > 0
-                                ? <span className='bg-red-600 absolute -top-1 -right-1 text-white size-4 rounded-sm text-xs flex items-center justify-center'>
-                                    {cartCount}
-                                </span>
+                                ? <Badge value={cartCount} className='absolute -top-1 -right-1' />
                                 : <></>
                         }
                     </Link>
