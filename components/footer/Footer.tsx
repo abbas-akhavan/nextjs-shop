@@ -5,6 +5,7 @@ import { ChevronUpIcon, PhoneIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion'
+import ScrollUpButton from './ScrollUpButton'
 
 const Footer = () => {
     const advantages = [
@@ -147,10 +148,7 @@ const Footer = () => {
             <div className='container py-4 md:py-7'>
                 <div className='flex justify-center md:justify-between'>
                     <Logo />
-                    <Button className='border border-slate-700 bg-transparent hover:bg-slate-950 text-xs rounded-full md:rounded-sm'>
-                        بازگشت به بالا
-                        <ChevronUpIcon className='!size-4' />
-                    </Button>
+                    <ScrollUpButton />
                 </div>
                 <div className='flex justify-between items-center text-xs mt-5 md:hidden'>
                     <div className='flex gap-2 items-center'>
