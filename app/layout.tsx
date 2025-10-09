@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import { ReduxProvider } from "@/providers/ReduxProvider";
 import Providers from "@/providers/Providers";
 import { GlobalOverlay } from "@/components/shared/GlobalOverlay";
+import MobilleNavbar from "@/components/shared/MobilleNavbar";
 
 const iranYekan = localFont({
   src: [
@@ -53,7 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl" className={iranYekan.className}>
-      <body className=" bg-slate-900 text-white min-h-screen">
+      <body className=" bg-slate-900 text-white min-h-screen pb-16">
         <Providers>
           {children}
         </Providers>
@@ -61,6 +62,7 @@ export default function RootLayout({
         <Toaster toastOptions={{
           className: "!bg-gray-100 !text-black"
         }} />
+        <MobilleNavbar />
       </body>
     </html>
   );

@@ -20,7 +20,7 @@ const CartDetails = () => {
     }, [user])
 
     return (
-        <div className='container mt-8 mb-20 min-h-[300px] relative md:my-14'>
+        <div className='container mt-8 min-h-[300px] relative md:my-14'>
             {
                 (user.isLoading)
                     ? <LoadingComponent className='absolute' />
@@ -54,7 +54,7 @@ const CartDetails = () => {
                             <div className='text-xl font-semibold'>سبد خرید شما خالی است !</div>
                         </div>
             }
-            <div className='fixed bottom-0 left-0 w-full flex flex-row justify-between bg-slate-900 p-3 border-t border-slate-700 gap-3 md:hidden'>
+            <div className='fixed bottom-[61px] left-0 w-full flex flex-row justify-between bg-slate-900 p-3 border-t border-slate-700 gap-3 md:hidden'>
                 <Button className=' bg-digikala py-5 hover:bg-digikala'>تایید و ثبت سفارش</Button>
                 <div className='text-sm flex flex-col items-center gap-2'>
                     <span className='text-xs text-gray-400'>جمع سبد خرید</span>
