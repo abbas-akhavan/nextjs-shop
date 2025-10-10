@@ -7,7 +7,7 @@ import Badge from './Badge';
 
 const MobileNavbarItemComponent = ({ item, badge }: { item: MobileNavbarItem, badge?: number }) => {
     const path = usePathname();
-    const showBadge = badge && badge > 0;
+    const showBadge = !!badge && badge > 0;
     return (
         <Link href={item.url} className='flex flex-col gap-1 items-center relative'>
             {
