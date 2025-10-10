@@ -49,9 +49,9 @@ const CartDetails = () => {
                                 </div>
                             </aside>
                         </div>
-                        : <div className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center'>
+                        : <div className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center w-max'>
                             <Image src='/images/empty-cart.svg' alt='empty cart' width={200} height={150} />
-                            <div className='text-xl font-semibold'>سبد خرید شما خالی است !</div>
+                            <div className='md:text-xl font-semibold text-center'>سبد خرید شما خالی است !</div>
                         </div>
             }
             <div className='fixed bottom-[61px] left-0 w-full flex flex-row justify-between bg-slate-900 p-3 border-t border-slate-700 gap-3 md:hidden'>
