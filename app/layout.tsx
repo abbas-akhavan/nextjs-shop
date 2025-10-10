@@ -54,7 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl" className={iranYekan.className}>
-      <body className=" bg-slate-900 text-white min-h-screen pb-16">
+      <body className=" bg-slate-900 text-white min-h-screen pb-16 md:pb-0">
         <Providers>
           {children}
         </Providers>
