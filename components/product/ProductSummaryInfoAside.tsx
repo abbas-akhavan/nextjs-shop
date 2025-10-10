@@ -32,7 +32,7 @@ const ProductSummaryInfoAside = ({ product }: Props) => {
                 <span>دیجی کالا</span>
             </div>
             <hr className='hidden lg:block border-slate-600' />
-            <div className='fixed bottom-[61px] left-0 w-full flex flex-row-reverse justify-between bg-slate-900 py-4 px-3 md:p-3 border-t border-slate-700 gap-3 lg:border-none lg:flex-col lg:static lg:bg-inherit lg:p-0'>
+            <div className='fixed bottom-[60px] md:bottom-[0] left-0 w-full flex flex-row-reverse justify-between bg-slate-900 py-4 px-3 md:p-3 border-t border-slate-700 gap-3 lg:border-none lg:flex-col lg:static lg:bg-inherit lg:p-0'>
                 <div className='flex justify-end'>
                     <Price value={product.price} />
                 </div>
