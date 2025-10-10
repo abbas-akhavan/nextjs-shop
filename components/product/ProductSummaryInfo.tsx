@@ -11,9 +11,9 @@ interface Props {
 const ProductSummaryInfo = ({ product }: Props) => {
     const [readMore, setRaedMore] = useState(false)
     return (
-        <div className='flex flex-col gap-4 h-full'>
+        <div className='flex flex-col gap-4'>
             <h1 className='text-lg font-semibold'>{product.name}</h1>
-            <div className='grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-4'>
+            <div className='grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-4  h-full'>
                 <div className='text-justify flex flex-col items-center gap-4'>
                     <p className='text-sm !leading-6 sm:text-base sm:!leading-7'>
                         {
