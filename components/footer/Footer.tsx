@@ -145,12 +145,16 @@ const socialLinks = [
     },
 ]
 
-const urlBlackList = ['/cart']
+const urlBlackList = [
+    '/cart',
+    '/products'
+]
 
 const Footer = () => {
     const isMobile = useMediaQuery(1024);
     const path = usePathname();
-    const dontShowFooter = urlBlackList.find(url => url === path)
+    console.log(path)
+    const dontShowFooter = urlBlackList.find(url => path.startsWith(url))
 
 
     if (isMobile && dontShowFooter) return <></>
