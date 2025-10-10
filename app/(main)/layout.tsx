@@ -1,5 +1,6 @@
 import Footer from '@/components/footer/Footer';
 import Header from '@/components/header/Header';
+import MobilleNavbar from '@/components/shared/MobilleNavbar';
 import React from 'react'
 
 export default function MainLayout({
@@ -19,6 +20,7 @@ export default function MainLayout({
             <main>
                 {children}
             </main>
+            <MobilleNavbar />
             <Footer />
         </>
     );

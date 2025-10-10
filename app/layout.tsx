@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./input.css";
 import { Toaster } from "react-hot-toast";
-import { ReduxProvider } from "@/providers/ReduxProvider";
 import Providers from "@/providers/Providers";
 import { GlobalOverlay } from "@/components/shared/GlobalOverlay";
-import MobilleNavbar from "@/components/shared/MobilleNavbar";
 
 const iranYekan = localFont({
   src: [
@@ -62,7 +60,6 @@ export default function RootLayout({
         <Toaster toastOptions={{
           className: "!bg-gray-100 !text-black"
         }} />
-        <MobilleNavbar />
       </body>
     </html>
   );
