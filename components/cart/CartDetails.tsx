@@ -48,19 +48,20 @@ const CartDetails = () => {
                                     </div>
                                 </div>
                             </aside>
+                            <div className='fixed bottom-[61px] left-0 w-full flex flex-row justify-between bg-slate-900 p-3 border-t border-slate-700 gap-3 md:hidden'>
+                                <Button className=' bg-digikala py-5 hover:bg-digikala'>تایید و ثبت سفارش</Button>
+                                <div className='text-sm flex flex-col items-center gap-2'>
+                                    <span className='text-xs text-gray-400'>جمع سبد خرید</span>
+                                    <Price value={totalPrice} />
+                                </div>
+                            </div>
                         </div>
                         : <div className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center w-max'>
                             <Image src='/images/empty-cart.svg' alt='empty cart' width={200} height={150} />
                             <div className='md:text-xl font-semibold text-center'>سبد خرید شما خالی است !</div>
                         </div>
             }
-            <div className='fixed bottom-[61px] left-0 w-full flex flex-row justify-between bg-slate-900 p-3 border-t border-slate-700 gap-3 md:hidden'>
-                <Button className=' bg-digikala py-5 hover:bg-digikala'>تایید و ثبت سفارش</Button>
-                <div className='text-sm flex flex-col items-center gap-2'>
-                    <span className='text-xs text-gray-400'>جمع سبد خرید</span>
-                    <Price value={totalPrice} />
-                </div>
-            </div>
+
         </div>
     )
 }
