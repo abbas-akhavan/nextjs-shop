@@ -228,7 +228,7 @@ const Footer = () => {
                     {
                         menuItems.map((category, index) => (
                             <AccordionItem value={`item-${index}`} className=' border-b-slate-700 last:!border-b-0' key={category.category}>
-                                <AccordionTrigger className='font-semibold'>{category.category}</AccordionTrigger>
+                                <AccordionTrigger className='font-semibold hover:no-underline'>{category.category}</AccordionTrigger>
                                 <AccordionContent className='flex flex-col gap-3'>
                                     {
                                         category.items.map((categoryItem) => (
