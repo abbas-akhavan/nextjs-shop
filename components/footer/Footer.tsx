@@ -153,7 +153,6 @@ const urlBlackList = [
 const Footer = () => {
     const isMobile = useMediaQuery(1024);
     const path = usePathname();
-    console.log(path)
     const dontShowFooter = urlBlackList.find(url => path.startsWith(url))
 
 
