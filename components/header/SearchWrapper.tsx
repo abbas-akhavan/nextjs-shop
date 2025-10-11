@@ -39,7 +39,7 @@ const SearchWrapper = ({ setShowSearchWrapper }: SearchWrapperProp) => {
         window.history.replaceState(null, "", window.location.pathname + window.location.search);
     }
 
-    const { data: searchResults, error, isLoading } = useQuery<{ data: Product[]; total: any }>({
+    const { data: searchResults, error, isLoading } = useQuery<{ data: Product[]; totalRows: number, currentRow: number }>({
         queryKey: ['searchTerm', debouncedSerchTerm],
         queryFn: () => fetchFromSupabaseWithAxios('products', {
             select: '*',

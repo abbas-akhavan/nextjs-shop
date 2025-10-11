@@ -50,8 +50,8 @@ export async function fetchFromSupabase<T = any>(table: string, params?: Supabas
 
 export async function fetchFromSupabaseWithAxios<T = any>(
     table: string,
-    params?: SupabaseQuery
-): Promise<T> {
+    params?: SupabaseQuery,
+): Promise<{ data: T; totalRows: number, currentRow: number }> {
     const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
@@ -74,11 +74,19 @@ export async function fetchFromSupabaseWithAxios<T = any>(
                 apikey: SUPABASE_ANON_KEY,
                 Authorization: `Bearer ${params?.userToken || SUPABASE_ANON_KEY}`,
                 'Content-Type': 'application/json',
+                Prefer: "count=exact",
             },
             data: params?.body,
             timeout: params?.timeoutMs ?? 0,
         });
-        return res.data;
+        const rangeOfData = res.headers['content-range'];
+        const totalRows = Number(rangeOfData?.split('/')[1])
+        const currentRow = Number(rangeOfData?.split('/')[0]?.split('-')[1])
+        return {
+            data: res.data,
+            totalRows,
+            currentRow
+        }
     } catch (error) {
         if (axios.isAxiosError(error)) {
             const axiosErr = error as AxiosError;
