@@ -1,19 +1,15 @@
 import { fetchFromSupabase } from '@/utils/helpers'
-import { Product } from '@/types/Product'
 import React from 'react'
+import ProductsList from '@/components/product/ProductsList'
 
 const page = async () => {
-    const products: Product[] = await fetchFromSupabase('products', {
-        select: '*'
-    })
+    // const products: Product[] = await fetchFromSupabase('products', {
+    //     select: '*'
+    // })
+
+
     return (
-        <div>
-            {
-                products.map(product => (
-                    <h2 key={product.id}>{product.name}</h2>
-                ))
-            }
-        </div>
+        <ProductsList />
     )
 }
 
