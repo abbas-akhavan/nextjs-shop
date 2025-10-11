@@ -39,7 +39,7 @@ const SearchWrapper = ({ setShowSearchWrapper }: SearchWrapperProp) => {
         window.history.replaceState(null, "", window.location.pathname + window.location.search);
     }
 
-    const { data: searchResults, error, isLoading } = useQuery<Product[]>({
+    const { data: searchResults, error, isLoading } = useQuery<{ data: Product[]; total: any }>({
         queryKey: ['searchTerm', debouncedSerchTerm],
         queryFn: () => fetchFromSupabaseWithAxios('products', {
             select: '*',
@@ -88,7 +88,7 @@ const SearchWrapper = ({ setShowSearchWrapper }: SearchWrapperProp) => {
                             ? <Spiner className='mx-auto w-6 h-6 my-7' />
                             : <ul>
                                 {
-                                    searchResults?.map(product => (
+                                    searchResults?.data?.map(product => (
                                         <li onClick={() => handleClickWrapperItems(product)} key={product.id} className='flex gap-2 items-center py-2 cursor-pointer md:py-1'>
                                             <MagnifyingGlassIcon className='w-5 h-5 shrink-0' />
                                             <span className=' line-clamp-1 h-5 md:h-7'>{product.name}</span>
