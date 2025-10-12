@@ -7,6 +7,7 @@ import { Category } from '@/types/Category';
 import { fetchFromSupabaseWithAxios } from '@/utils/helpers';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
+import toast from 'react-hot-toast';
 
 const ProductsAsideFilters = ({ handleFilters }: { handleFilters: (key: string, value: string) => void }) => {
     const searchParams = useSearchParams();
