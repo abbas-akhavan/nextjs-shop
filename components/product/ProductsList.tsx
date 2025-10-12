@@ -199,6 +199,11 @@ const ProductsList = () => {
                         onClick={() => handleFilters('order', 'price.desc')}>
                         گرانترین
                     </SortItem>
+                    <SortItem
+                        active={searchParams.get('order') === 'created_at.desc'}
+                        onClick={() => handleFilters('order', 'created_at.desc')}>
+                        جدیدترین
+                    </SortItem>
                     <span className='mr-auto text-slate-300'>
                         {
                             isFetching
