@@ -12,6 +12,7 @@ import Spiner from '../Spiner';
 import ProductsAsideFilters from './ProductsAsideFilters';
 import useMediaQuery from '@/hooks/useMediaQuery';
 import ProductsMobileSort from './ProductsMobileSort';
+import ProductsMobileFilter from './ProductsMobileFilter';
 
 const ProductsList = () => {
     // http://localhost:3005/products?category_id=eq.1&order=price.desc
@@ -115,7 +116,10 @@ const ProductsList = () => {
                                 }
                             </span>
                         </div>
-                        : <ProductsMobileSort handleFilters={handleFilters} />
+                        : <div className='flex gap-2'>
+                            <ProductsMobileSort handleFilters={handleFilters} />
+                            <ProductsMobileFilter handleFilters={handleFilters} />
+                        </div>
                 }
                 <div className='grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-5 gap-3 mt-3'>
                     {
