@@ -79,45 +79,44 @@ const ProductsAsideFilters = ({ handleFilters }: { handleFilters: (key: string, 
     })
 
     return (
-        <aside className=''>
-            <div className='border rounded-md border-slate-700 bg-slate-800 sticky top-20 p-4'>
-                <div className='text-lg font-semibold'>فیلترها</div>
-                <CollabsibleContent title='دسته بندی'>
-                    <CategoryFilterItem
-                        key='all-category'
-                        title='همه کالاها'
-                        active={!searchParams.get('category_id')}
-                        onClick={() => handleFilters('category_id', '')}
-                    />
-                    {
-                        categories?.data.map(category => (
-                            <CategoryFilterItem
-                                key={category.id}
-                                title={category.name}
-                                active={searchParams.get('category_id') === `eq.${category.id}`}
-                                onClick={() => handleFilters('category_id', `eq.${category.id}`)}
-                            />
-                        ))
-                    }
-                </CollabsibleContent>
-                <CollabsibleContent title='محدوده قیمت'>
-                    <div className='flex flex-col items-center gap-3'>
-                        <div className='flex gap-2 items-center w-full'>
-                            <span className='w-4 shrink-0'>از</span>
-                            <Input className='border-slate-600 ltr' value={floorPrice} onChange={(e) => handlePriceChange('floor', e.target.value)} />
-                            <span>تومان</span>
-                        </div>
-                        <div className='flex gap-2 items-center w-full'>
-                            <span className='w-4 shrink-0'>تا</span>
-                            <Input className='border-slate-600 ltr' value={ceilPrice} onChange={(e) => handlePriceChange('ceil', e.target.value)} />
-                            <span>تومان</span>
-                        </div>
-                        <Button className='border border-slate-700 bg-transparent hover:bg-slate-950' onClick={handleApplyPrice}>اعمال محدوده قیت</Button>
-                    </div>
 
-                </CollabsibleContent>
-            </div>
-        </aside>
+        <div className='border rounded-md border-slate-700 bg-slate-800 sticky top-20 p-4'>
+            <div className='text-lg font-semibold'>فیلترها</div>
+            <CollabsibleContent title='دسته بندی'>
+                <CategoryFilterItem
+                    key='all-category'
+                    title='همه کالاها'
+                    active={!searchParams.get('category_id')}
+                    onClick={() => handleFilters('category_id', '')}
+                />
+                {
+                    categories?.data.map(category => (
+                        <CategoryFilterItem
+                            key={category.id}
+                            title={category.name}
+                            active={searchParams.get('category_id') === `eq.${category.id}`}
+                            onClick={() => handleFilters('category_id', `eq.${category.id}`)}
+                        />
+                    ))
+                }
+            </CollabsibleContent>
+            <CollabsibleContent title='محدوده قیمت'>
+                <div className='flex flex-col items-center gap-3'>
+                    <div className='flex gap-2 items-center w-full'>
+                        <span className='w-4 shrink-0'>از</span>
+                        <Input className='border-slate-600 ltr' value={floorPrice} onChange={(e) => handlePriceChange('floor', e.target.value)} />
+                        <span>تومان</span>
+                    </div>
+                    <div className='flex gap-2 items-center w-full'>
+                        <span className='w-4 shrink-0'>تا</span>
+                        <Input className='border-slate-600 ltr' value={ceilPrice} onChange={(e) => handlePriceChange('ceil', e.target.value)} />
+                        <span>تومان</span>
+                    </div>
+                    <Button className='border border-slate-700 bg-transparent hover:bg-slate-950' onClick={handleApplyPrice}>اعمال محدوده قیت</Button>
+                </div>
+
+            </CollabsibleContent>
+        </div>
 
     )
 }

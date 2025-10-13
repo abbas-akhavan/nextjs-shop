@@ -81,9 +81,11 @@ const ProductsList = () => {
 
     return (
         <div className='container grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-3 my-5'>
-            {
-                !isMobile && <ProductsAsideFilters handleFilters={handleFilters} />
-            }
+            <aside className=''>
+                {
+                    !isMobile && <ProductsAsideFilters handleFilters={handleFilters} />
+                }
+            </aside>
             <section>
                 {
                     !isMobile
@@ -115,7 +117,7 @@ const ProductsList = () => {
                         </div>
                         : <ProductsMobileSort handleFilters={handleFilters} />
                 }
-                <div className='grid lg:grid-cols-3 xl:grid-cols-5 gap-3 mt-3'>
+                <div className='grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-5 gap-3 mt-3'>
                     {
                         isFetching && !isFetchingNextPage
                             ? Array.from({ length: 5 }, (_, index) => (
@@ -130,7 +132,7 @@ const ProductsList = () => {
                 </div>
                 {
                     isFetchingNextPage
-                        ? <div className='grid grid-cols-5 gap-3 mt-3'>
+                        ? <div className='grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-5 gap-3 mt-3'>
                             {
                                 Array.from({ length: 5 }, (_, index) => (
                                     <ProductItemCardSkelrton key={index} />
