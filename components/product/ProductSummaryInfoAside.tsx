@@ -16,14 +16,16 @@ interface Props {
 const ProductSummaryInfoAside = ({ product }: Props) => {
     const addToCart = useAppStore(state => state.addToCart)
     const cart = useAppStore(state => state.cart)
-    const user = useAppStore(state => state.user)
+    const user = useAppStore(state => state.user.userInfo)
     const productInCart = useAppStore(state => state.cart.cartItems.find((cartItem) => cartItem.product.id === product.id))
     const router = useRouter();
+
     async function handleAddToCart() {
         if (!user) return router.push('/auth/login')
         const result = await addToCart(product);
         if (result) toast.success('کالا به سبد اضافه شد')
     }
+
     return (
         <div className='bg-slate-800 h-fit p-2 rounded-md sticky top-20 border border-slate-600 flex flex-col gap-3'>
             <div className='font-semibold'>فروشنده</div>
