@@ -17,7 +17,12 @@ const ProductsMobileSort = ({ handleFilters }: { handleFilters: (key: string, va
             open={open}
             onOpenChange={setOpen}
             title='مرتب سازی بر اساس'
-            triggerContent={<span className='flex gap-2 items-center'><BarsArrowDownIcon className='w-6 h-6' /> مرتب سازی :</span>}
+            triggerContent={
+                <span className='flex gap-2 items-center text-xs border border-slate-700 rounded-full py-2 px-3'>
+                    <BarsArrowDownIcon className='w-5 h-5' />
+                    مرتب سازی :
+                </span>
+            }
         >
             <SortItem
                 active={searchParams.get('order') === 'price.asc'}
