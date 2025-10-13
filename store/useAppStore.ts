@@ -62,7 +62,7 @@ const useAppStore = create<AppState>()(persist(
                 set(state => ({
                     cart: { ...state.cart, loading: false }
                 }))
-                return
+                return false
             }
 
             set((state) => {
@@ -86,6 +86,8 @@ const useAppStore = create<AppState>()(persist(
                     }
                 }
             })
+
+            return true;
         },
         clearCart: () => set({
             cart: {

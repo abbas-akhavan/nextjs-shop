@@ -31,7 +31,7 @@ export interface AppState {
     //cart
     cart: Cart;
     addToCart: (item: Product) => Promise<boolean>;
-    removeFromCart: (id: number) => void;
+    removeFromCart: (id: number) => Promise<boolean>;
     clearCart: () => void;
     //user
     user: User;
