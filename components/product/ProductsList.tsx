@@ -134,7 +134,7 @@ const ProductsList = () => {
                     isFetchingNextPage
                         ? <div className='grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-5 gap-3 mt-3'>
                             {
-                                Array.from({ length: 5 }, (_, index) => (
+                                Array.from({ length: isMobile ? 1 : 5 }, (_, index) => (
                                     <ProductItemCardSkelrton key={index} />
                                 ))
                             }
