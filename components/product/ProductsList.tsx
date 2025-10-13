@@ -10,6 +10,7 @@ import ProductItemCard from './ProductItemCard';
 import ProductItemCardSkelrton from '../skeletons/ProductItemCardSkelrton';
 import Spiner from '../Spiner';
 import ProductsAsideFilters from './ProductsAsideFilters';
+import useMediaQuery from '@/hooks/useMediaQuery';
 
 const ProductsList = () => {
     // http://localhost:3005/products?category_id=eq.1&order=price.desc
@@ -18,6 +19,7 @@ const ProductsList = () => {
     const filters = Object.fromEntries(searchParams.entries())
     const productPerPage = 10;
     const loadMoreRef = useRef<HTMLDivElement | null>(null);
+    const isMobile = useMediaQuery(1024)
 
     function handleFilters(key: string, value: string) {
         const params = new URLSearchParams(searchParams.toString());
@@ -77,10 +79,13 @@ const ProductsList = () => {
     }, [fetchNextPage, hasNextPage, isFetchingNextPage])
 
     return (
-        <div className='container grid grid-cols-[300px_1fr] gap-3 my-5'>
-            <aside>
-                <ProductsAsideFilters handleFilters={handleFilters} />
-            </aside>
+        <div className='container grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-3 my-5'>
+            {
+                !isMobile &&
+                <aside className=''>
+                    <ProductsAsideFilters handleFilters={handleFilters} />
+                </aside>
+            }
             <section>
                 <div className='flex gap-2 py-2 border-b border-slate-700 text-sm items-center'>
                     <span className='flex gap-2 items-center'><BarsArrowDownIcon className='w-6 h-6' /> مرتب سازی :</span>
@@ -109,7 +114,7 @@ const ProductsList = () => {
                     </span>
                 </div>
                 {
-                    <div className='grid lg:grid-cols- xl:grid-cols-5 gap-3 mt-3'>
+                    <div className='grid lg:grid-cols-3 xl:grid-cols-5 gap-3 mt-3'>
                         {
                             isFetching && !isFetchingNextPage
                                 ? Array.from({ length: 5 }, (_, index) => (
