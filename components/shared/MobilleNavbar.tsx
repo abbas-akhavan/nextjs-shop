@@ -22,10 +22,10 @@ const navbarItems: MobileNavbarItem[] = [
         url: '/cart'
     },
     {
-        title: 'دسته بندی',
+        title: 'محصولات',
         icon: <Squares2X2Icon className='w-6 h-6' />,
         activeIcon: <Squares2X2IconSolid className='w-6 h-6' />,
-        url: '/categories'
+        url: '/products'
     },
     {
         title: 'پروفایل',
