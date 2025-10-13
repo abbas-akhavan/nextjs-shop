@@ -11,7 +11,6 @@ import ProductItemCardSkelrton from '../skeletons/ProductItemCardSkelrton';
 import Spiner from '../Spiner';
 import ProductsAsideFilters from './ProductsAsideFilters';
 import useMediaQuery from '@/hooks/useMediaQuery';
-import ProductsMobileFilter from './ProductsMobileFilter';
 import ProductsMobileSort from './ProductsMobileSort';
 
 const ProductsList = () => {
