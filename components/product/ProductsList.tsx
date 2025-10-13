@@ -11,6 +11,8 @@ import ProductItemCardSkelrton from '../skeletons/ProductItemCardSkelrton';
 import Spiner from '../Spiner';
 import ProductsAsideFilters from './ProductsAsideFilters';
 import useMediaQuery from '@/hooks/useMediaQuery';
+import ProductsMobileFilter from './ProductsMobileFilter';
+import ProductsMobileSort from './ProductsMobileSort';
 
 const ProductsList = () => {
     // http://localhost:3005/products?category_id=eq.1&order=price.desc
@@ -81,53 +83,52 @@ const ProductsList = () => {
     return (
         <div className='container grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-3 my-5'>
             {
-                !isMobile &&
-                <aside className=''>
-                    <ProductsAsideFilters handleFilters={handleFilters} />
-                </aside>
+                !isMobile && <ProductsAsideFilters handleFilters={handleFilters} />
             }
             <section>
-                <div className='flex gap-2 py-2 border-b border-slate-700 text-sm items-center'>
-                    <span className='flex gap-2 items-center'><BarsArrowDownIcon className='w-6 h-6' /> مرتب سازی :</span>
-                    <SortItem
-                        active={searchParams.get('order') === 'price.asc'}
-                        onClick={() => handleFilters('order', 'price.asc')}>
-                        ارزانترین
-                    </SortItem>
-                    <SortItem
-                        active={searchParams.get('order') === 'price.desc'}
-                        onClick={() => handleFilters('order', 'price.desc')}>
-                        گرانترین
-                    </SortItem>
-                    <SortItem
-                        active={searchParams.get('order') === 'created_at.desc'}
-                        onClick={() => handleFilters('order', 'created_at.desc')}>
-                        جدیدترین
-                    </SortItem>
-                    <span className='mr-auto text-slate-300'>
-                        {
-                            isFetching
-                                ? <Spiner />
-                                : `${products?.pages[0].totalRows} کالا`
-
-                        }
-                    </span>
-                </div>
                 {
-                    <div className='grid lg:grid-cols-3 xl:grid-cols-5 gap-3 mt-3'>
-                        {
-                            isFetching && !isFetchingNextPage
-                                ? Array.from({ length: 5 }, (_, index) => (
-                                    <ProductItemCardSkelrton key={index} />
-                                ))
-                                : products?.pages.map((page) => (
-                                    page?.data.map(product => (
-                                        <ProductItemCard key={product.id} product={product} />
-                                    ))
-                                ))
-                        }
-                    </div>
+                    !isMobile
+                        ? <div className='flex gap-2 py-2 border-b border-slate-700 text-sm items-center'>
+                            <span className='flex gap-2 items-center'><BarsArrowDownIcon className='w-6 h-6' /> مرتب سازی :</span>
+                            <SortItem
+                                active={searchParams.get('order') === 'price.asc'}
+                                onClick={() => handleFilters('order', 'price.asc')}>
+                                ارزانترین
+                            </SortItem>
+                            <SortItem
+                                active={searchParams.get('order') === 'price.desc'}
+                                onClick={() => handleFilters('order', 'price.desc')}>
+                                گرانترین
+                            </SortItem>
+                            <SortItem
+                                active={searchParams.get('order') === 'created_at.desc'}
+                                onClick={() => handleFilters('order', 'created_at.desc')}>
+                                جدیدترین
+                            </SortItem>
+                            <span className='mr-auto text-slate-300'>
+                                {
+                                    isFetching
+                                        ? <Spiner />
+                                        : `${products?.pages[0].totalRows} کالا`
+
+                                }
+                            </span>
+                        </div>
+                        : <ProductsMobileSort handleFilters={handleFilters} />
                 }
+                <div className='grid lg:grid-cols-3 xl:grid-cols-5 gap-3 mt-3'>
+                    {
+                        isFetching && !isFetchingNextPage
+                            ? Array.from({ length: 5 }, (_, index) => (
+                                <ProductItemCardSkelrton key={index} />
+                            ))
+                            : products?.pages.map((page) => (
+                                page?.data.map(product => (
+                                    <ProductItemCard key={product.id} product={product} />
+                                ))
+                            ))
+                    }
+                </div>
                 {
                     isFetchingNextPage
                         ? <div className='grid grid-cols-5 gap-3 mt-3'>
