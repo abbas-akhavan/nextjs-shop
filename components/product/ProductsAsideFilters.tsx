@@ -81,7 +81,7 @@ const ProductsAsideFilters = ({ handleFilters }: { handleFilters: (key: string, 
     })
 
     return (
-        <div className={`border rounded-md border-slate-700 bg-slate-800 sticky p-4 ${scrollDown ? 'top-20' : 'top-28'}`}>
+        <div className={`border rounded-md border-slate-700 bg-slate-800 sticky p-4 ${scrollDown ? 'top-20' : 'top-[120px]'}`}>
             <div className='text-lg font-semibold'>فیلترها</div>
             <CollabsibleContent title='دسته بندی'>
                 <CategoryFilterItem

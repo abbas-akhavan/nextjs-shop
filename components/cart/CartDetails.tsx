@@ -40,7 +40,7 @@ const CartDetails = () => {
                             </section>
 
                             <aside className='border-t border-slate-700 md:border-none'>
-                                <div className={`sticky ${scrollDown ? 'top-20' : 'top-28'}`}>
+                                <div className={`sticky ${scrollDown ? 'top-20' : 'top-[120px]'}`}>
                                     <div className='rounded-lg px-5 py-5 flex flex-col gap-3 md:border md:border-slate-700 md:py-3'>
                                         <div className='text-sm flex justify-between'>
                                             <span>{`قیمت کالاها (${cartCount})`}</span>

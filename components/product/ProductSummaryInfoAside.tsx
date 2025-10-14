@@ -29,7 +29,7 @@ const ProductSummaryInfoAside = ({ product }: Props) => {
     }
 
     return (
-        <div className={`bg-slate-800 h-fit p-2 rounded-md sticky border border-slate-600 flex flex-col gap-3 ${scrollDown ? 'top-20' : 'top-28'}`}>
+        <div className={`bg-slate-800 h-fit p-2 rounded-md sticky border border-slate-600 flex flex-col gap-3 ${scrollDown ? 'top-20' : 'top-[120px]'}`}>
             <div className='font-semibold'>فروشنده</div>
             <div className='flex gap-2'>
                 <BuildingStorefrontIcon className='w-6 h-6' />
