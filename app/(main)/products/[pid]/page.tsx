@@ -28,7 +28,7 @@ const SingleProduct = async ({ params }: { params: Promise<{ pid: string }> }) =
     const product = await getProduct(pid);
     if (!product) notFound();
     return (
-        <div className='container mt-12 grid grid-cols-1 xl:grid-cols-[4fr_8fr] gap-4 pb-24'>
+        <div className='container mt-16 grid grid-cols-1 xl:grid-cols-[4fr_8fr] gap-4 pb-24'>
             <ProductGallary src={product.image_url} alt={product.name} />
             <ProductSummaryInfo product={product} />
         </div>
