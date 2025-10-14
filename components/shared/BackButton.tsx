@@ -7,13 +7,7 @@ const BackButton = ({ className }: { className?: string }) => {
     const router = useRouter();
 
     const handleBack = () => {
-        const fromOutside = document.referrer && !document.referrer.includes(window.location.origin);
-
-        if (window.history.length > 1 && !fromOutside) {
-            router.back();
-        } else {
-            router.push('/'); // مسیر منطقی قبلی در پروژه
-        }
+        router.back();
     };
 
     return (
