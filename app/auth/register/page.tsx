@@ -13,6 +13,8 @@ import ShowPassBtn from '@/components/auth/ShowPassBtn';
 import toast from 'react-hot-toast';
 import Spiner from '@/components/Spiner';
 import useAppStore from '@/store/useAppStore';
+import VerticalLogo from '@/components/shared/VerticalLogo';
+import BackButton from '@/components/shared/BackButton';
 
 const Auth = () => {
     const [loading, setLoading] = useState(false);
@@ -60,7 +62,11 @@ const Auth = () => {
         <main className='container mx-auto p-5 pt-40 md:pt-52'>
             <div className='  shadow-lg bg-gradient-to-br from-cyan-700 to-sky-950 p-[1px] w-full md:w-96 rounded-xl mx-auto'>
                 <Card className='rounded-xl bg-gray-900 border-none text-white'>
-                    <CardHeader>
+                    <CardHeader className='gap-2'>
+                        <div className='flex justify-center relative'>
+                            <BackButton className='absolute right-0 top-1/2 -translate-y-1/2' />
+                            <VerticalLogo />
+                        </div>
                         <CardTitle className='text-center'>ثبت نام</CardTitle>
                     </CardHeader>
                     <CardContent>

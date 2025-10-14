@@ -15,6 +15,9 @@ import Spiner from '@/components/Spiner';
 import { LoginFormData } from '@/types/LoginFormData';
 import Link from 'next/link';
 import useAppStore from '@/store/useAppStore';
+import Logo from '@/components/header/Logo';
+import VerticalLogo from '@/components/shared/VerticalLogo';
+import BackButton from '@/components/shared/BackButton';
 
 const Auth = () => {
     const login = useAppStore((state) => state.login);
@@ -59,7 +62,11 @@ const Auth = () => {
         <main className='container mx-auto p-5 pt-40 md:pt-40'>
             <div className='  shadow-lg bg-gradient-to-br from-cyan-700 to-sky-950 p-[1px] w-full md:w-96 rounded-xl mx-auto'>
                 <Card className='rounded-xl bg-gray-900 border-none text-white'>
-                    <CardHeader>
+                    <CardHeader className='gap-2'>
+                        <div className='flex justify-center relative'>
+                            <BackButton className='absolute right-0 top-1/2 -translate-y-1/2' />
+                            <VerticalLogo />
+                        </div>
                         <CardTitle className='text-center'>ورود</CardTitle>
                     </CardHeader>
                     <CardContent>
