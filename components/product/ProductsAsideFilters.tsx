@@ -8,8 +8,10 @@ import { fetchFromSupabaseWithAxios } from '@/utils/helpers';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import toast from 'react-hot-toast';
+import useScrollDown from '@/hooks/useSrollDown';
 
 const ProductsAsideFilters = ({ handleFilters }: { handleFilters: (key: string, value: string) => void }) => {
+    const scrollDown = useScrollDown()
     const searchParams = useSearchParams();
     const [floorPrice, setFloorPrice] = useState(() => {
         const priceParam = searchParams.get('and');
@@ -79,8 +81,7 @@ const ProductsAsideFilters = ({ handleFilters }: { handleFilters: (key: string, 
     })
 
     return (
-
-        <div className='border rounded-md border-slate-700 bg-slate-800 sticky top-20 p-4'>
+        <div className={`border rounded-md border-slate-700 bg-slate-800 sticky p-4 ${scrollDown ? 'top-20' : 'top-28'}`}>
             <div className='text-lg font-semibold'>فیلترها</div>
             <CollabsibleContent title='دسته بندی'>
                 <CategoryFilterItem

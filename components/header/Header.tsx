@@ -4,11 +4,12 @@ import LoginOrRegisterButton from './LoginOrRegisterButton';
 import Cart from './Cart';
 import Logo from './Logo';
 import Search from './Search';
+import Navbar from './Navbar';
 
 const Header = () => {
 
     return (
-        <header className='bg-slate-800 py-3 shadow-lg border-b border-slate-700 sticky top-0 z-40'>
+        <header className='bg-slate-800 py-3 shadow-lg border-b border-slate-700 sticky top-0 z-40 relative'>
             <div className='container mx-auto'>
                 <section className='flex items-center md:gap-5'>
                     <Logo />
@@ -19,6 +20,7 @@ const Header = () => {
                     </div>
                 </section>
             </div>
+            <Navbar />
         </header>
     )
 }
