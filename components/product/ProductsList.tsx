@@ -81,7 +81,7 @@ const ProductsList = () => {
     }, [fetchNextPage, hasNextPage, isFetchingNextPage])
 
     return (
-        <div className='container grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-3 my-5 mt-10'>
+        <div className='container grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-3 my-5 mt-14'>
             <aside className=''>
                 {
                     !isMobile && <ProductsAsideFilters handleFilters={handleFilters} />
