@@ -5,6 +5,7 @@ import { Product } from '@/types/Product';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import { Metadata } from 'next';
+import { isNumber } from '@/utils/useful-functions';
 
 async function getProduct(pid: string): Promise<Product> {
     const data: Product[] = await fetchFromSupabase('products', {
@@ -21,10 +22,9 @@ export async function generateMetadata({ params }: { params: Promise<{ pid: stri
     const product = await getProduct(pid);
     return { title: product.name, description: product.description }
 }
-
-
 const SingleProduct = async ({ params }: { params: Promise<{ pid: string }> }) => {
     const { pid } = await params;
+    if (!isNumber(pid)) notFound();
     const product = await getProduct(pid);
     if (!product) notFound();
     return (

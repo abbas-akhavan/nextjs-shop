@@ -37,3 +37,7 @@ export function throttle<T extends (...args: any[]) => void>(
         }
     };
 }
+
+export function isNumber(value: string) {
+    return /^\d+$/.test(value);
+}
