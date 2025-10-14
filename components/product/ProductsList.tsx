@@ -127,11 +127,13 @@ const ProductsList = () => {
                             ? Array.from({ length: 5 }, (_, index) => (
                                 <ProductItemCardSkelrton key={index} />
                             ))
-                            : products?.pages.map((page) => (
-                                page?.data.map(product => (
-                                    <ProductItemCard key={product.id} product={product} />
+                            : products?.pages[0].data.length && products?.pages[0].data.length > 0
+                                ? products?.pages.map((page) => (
+                                    page?.data.map(product => (
+                                        <ProductItemCard key={product.id} product={product} />
+                                    ))
                                 ))
-                            ))
+                                : <div>محصولی پیدا نشد ):</div>
                     }
                 </div>
                 {
