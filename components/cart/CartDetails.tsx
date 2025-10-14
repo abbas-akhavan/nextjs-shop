@@ -22,7 +22,7 @@ const CartDetails = () => {
     }, [user])
 
     return (
-        <div className='container mt-8 min-h-[300px] relative md:my-14'>
+        <div className='container mt-8 mb-24 min-h-[300px] relative md:my-14'>
             {
                 (user.isLoading)
                     ? <LoadingComponent className='absolute' />
