@@ -9,11 +9,13 @@ import { useRouter } from 'next/navigation';
 import Spiner from '../Spiner';
 import CartButton from '../shared/CartButton';
 import toast from 'react-hot-toast';
+import useScrollDown from '@/hooks/useSrollDown';
 
 interface Props {
     product: Product;
 }
 const ProductSummaryInfoAside = ({ product }: Props) => {
+    const scrollDown = useScrollDown();
     const addToCart = useAppStore(state => state.addToCart)
     const cart = useAppStore(state => state.cart)
     const user = useAppStore(state => state.user.userInfo)
@@ -27,7 +29,7 @@ const ProductSummaryInfoAside = ({ product }: Props) => {
     }
 
     return (
-        <div className='bg-slate-800 h-fit p-2 rounded-md sticky top-20 border border-slate-600 flex flex-col gap-3'>
+        <div className={`bg-slate-800 h-fit p-2 rounded-md sticky border border-slate-600 flex flex-col gap-3 ${scrollDown ? 'top-20' : 'top-28'}`}>
             <div className='font-semibold'>فروشنده</div>
             <div className='flex gap-2'>
                 <BuildingStorefrontIcon className='w-6 h-6' />
