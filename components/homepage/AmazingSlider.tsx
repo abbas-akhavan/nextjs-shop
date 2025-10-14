@@ -49,7 +49,7 @@ const AmazingSlider = ({ items }: { items: AmazingOffer[] }) => {
                 <SwiperSlide className='!hidden md:!block'>
                     <Link href='/incredible-offers' className='flex flex-col items-center'>
                         <Image src='/Amazings.svg' alt='پیشنهاد شگفت انگیز' width={88} height={88} />
-                        <Timer endTime='2025-10-09T23:59:59' />
+                        <Timer endTime='2025-10-17T23:59:59' />
                         <Image src='/Amazing.svg' alt='پیشنهاد شگفت انگیز' width={88} height={88} />
                         <span className='flex gap-1 items-center'>مشاهده همه <ChevronLeftIcon className='size-4' /></span>
                     </Link>

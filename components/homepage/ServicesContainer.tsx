@@ -69,7 +69,7 @@ const services: ServiceItem[] = [
 
 
 async function getData() {
-    await new Promise(resolve => setTimeout(resolve, 3000))
+    await new Promise(resolve => setTimeout(resolve, 1000))
     return services
 }
 const ServicesContainer = async () => {
