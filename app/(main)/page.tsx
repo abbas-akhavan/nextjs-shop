@@ -13,10 +13,6 @@ import ServicesSkeleton from "@/components/skeletons/ServicesSkeleton";
 import { Metadata } from "next";
 import { Suspense } from "react";
 
-export const metadata: Metadata = {
-  title: 'home page',
-  description: 'this is home page.',
-}
 // async function getData() {
 //   await new Promise(resolve => setTimeout(resolve, 1000))
 //   return { message: 'data' }
