@@ -69,7 +69,7 @@ const SearchWrapper = ({ setShowSearchWrapper }: SearchWrapperProp) => {
     }, []);
 
     return (
-        <div ref={searchWrapperRef} className='fixed top-0 right-0 w-screen h-screen text-sm p-3 rounded-sm bg-slate-700 shadow-md md:h-auto md:text-base md:w-full md:absolute md:pt-0'>
+        <div ref={searchWrapperRef} className='fixed top-0 right-0 w-screen h-screen text-sm p-3 rounded-sm bg-slate-700 shadow-md md:h-auto md:text-base md:w-full md:absolute md:pt-0 z-20'>
             <div className='w-full relative mb-4 md:mb-3'>
                 <Button onClick={hideSearchWrapper} className='top-1/2 right-0 -translate-y-1/2 bg-inherit absolute px-3 md:hidden shadow-none'>
                     <ArrowRightIcon className='!w-6 !h-6' />

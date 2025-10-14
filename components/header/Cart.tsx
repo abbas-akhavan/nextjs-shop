@@ -36,7 +36,7 @@ const Cart = () => {
             </HoverCardTrigger>
             {
                 (cartCount > 0 && !(url === '/cart')) &&
-                <HoverCardContent sideOffset={5} className='hidden md:block w-96 bg-slate-700 shadow-md rounded-md data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom-5 data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-bottom-5' align='end'>
+                <HoverCardContent sideOffset={5} className='z-40 hidden md:block w-96 bg-slate-700 shadow-md rounded-md data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom-5 data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-bottom-5' align='end'>
                     <div className='p-2 text-sm'>{toPersianNumber(cartCount)} کالا</div>
                     <hr className='border-slate-500' />
                     <div className='p-3 max-h-64 overflow-y-auto flex flex-col gap-3'>
