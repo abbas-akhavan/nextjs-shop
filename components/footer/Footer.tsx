@@ -9,6 +9,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '..
 import ScrollUpButton from './ScrollUpButton'
 import useMediaQuery from '@/hooks/useMediaQuery'
 import { usePathname } from 'next/navigation'
+import LazyImage from '../shared/LazyImage'
 
 const advantages = [
     {
@@ -186,7 +187,7 @@ const Footer = () => {
                     {
                         advantages.map((advantage, i) => (
                             <div key={advantage ? advantage.id : i} className='flex flex-col gap-2 items-center'>
-                                <Image src={advantage ? advantage.image_url : ''} alt={advantage ? advantage.title : ''} width={56} height={56} />
+                                <LazyImage src={advantage ? advantage.image_url : ''} alt={advantage ? advantage.title : ''} width={56} height={56} />
                                 <span className='text-xs'>{advantage?.title}</span>
                             </div>
                         ))

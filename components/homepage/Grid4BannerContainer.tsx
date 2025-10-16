@@ -3,6 +3,7 @@ import { PartnerShip } from '@/types/PartnerShip';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
+import LazyImage from '../shared/LazyImage';
 
 const Grid4BannerContainer = async () => {
     const data: PartnerShip[] = await fetchFromSupabase('partner_ships', {
@@ -17,7 +18,7 @@ const Grid4BannerContainer = async () => {
             {
                 data.map(partnerShip => (
                     <Link key={partnerShip.id} href={partnerShip.url}>
-                        <Image className='rounded-xl w-full' src={partnerShip.image_url} alt={partnerShip.title} width={322} height={242} />
+                        <LazyImage className='rounded-xl w-full' src={partnerShip.image_url} alt={partnerShip.title} width={322} height={242} />
                     </Link>
                 ))
             }

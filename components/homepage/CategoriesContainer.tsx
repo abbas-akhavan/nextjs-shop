@@ -4,6 +4,7 @@ import { Category } from '@/types/Category';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
+import LazyImage from '../shared/LazyImage';
 
 const CategoriesContainer = async () => {
     const data: Category[] = await fetchFromSupabase('categories', {
@@ -22,7 +23,7 @@ const CategoriesContainer = async () => {
                                 {
                                     group.map((category, i) => (
                                         <Link href={`/products?category_id=eq.${category.id}`} key={i} className='flex flex-col gap-3 items-center'>
-                                            <Image className='rounded-full size-16 md:size-24' src={category.image_url} alt={category.name} width={85} height={85} />
+                                            <LazyImage className='rounded-full size-16 md:size-24' src={category.image_url} alt={category.name} width={85} height={85} />
                                             <span className='text-xs md:text-sm text-center'>{category.name}</span>
                                         </Link>
                                     ))
